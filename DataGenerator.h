@@ -14,7 +14,7 @@ public:
     DataGenerator(int in_inputNum);
     DataGenerator(const DataGenerator& orig);
     virtual ~DataGenerator();
-    void generateData(double data[][2],int dataNum);
+    void generateData(int dataNum);
 private:
 
 };

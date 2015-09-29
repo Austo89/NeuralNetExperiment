@@ -6,6 +6,7 @@
  */
 
 #include <cstdlib>
+#include "DataGenerator.h"
 
 using namespace std;
 
@@ -13,7 +14,9 @@ using namespace std;
  * 
  */
 int main(int argc, char** argv) {
-
+    DataGenerator tom = DataGenerator(3);
+    tom.generateData(10);
+    
     return 0;
 }
 
