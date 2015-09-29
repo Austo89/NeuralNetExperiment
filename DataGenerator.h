@@ -9,10 +9,12 @@
 #define	DATAGENERATOR_H
 
 class DataGenerator {
+    int inputNum;
 public:
-    DataGenerator();
+    DataGenerator(int in_inputNum);
     DataGenerator(const DataGenerator& orig);
     virtual ~DataGenerator();
+    void generateData(double data[][2],int dataNum);
 private:
 
 };
