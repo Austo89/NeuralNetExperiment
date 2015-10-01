@@ -26,10 +26,11 @@ void DataGenerator::generateData(int dataNum) {
     //prepare to write to data file
     ofstream dataWriter;
     dataWriter.open("data.txt");
+    int x[inputNum];
 
     for (int d = 0; d < dataNum; d++) {
         //initialize new inputs array
-        int x[inputNum] = {};
+
         dataWriter << "x ";
 
         //generate inputs
