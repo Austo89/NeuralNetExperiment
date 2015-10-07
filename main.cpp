@@ -14,8 +14,8 @@ using namespace std;
  * 
  */
 int main(int argc, char** argv) {
-    DataGenerator tom = DataGenerator(3);
-    tom.generateData(10);
+    DataGenerator tom = DataGenerator(2);
+    tom.generateData(100);
     
     return 0;
 }

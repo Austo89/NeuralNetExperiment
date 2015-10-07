@@ -9,10 +9,17 @@
 #define	RBFNN_H
 
 class RBFNN {
+    int inputSize;
+    int K;
+    double gamma;
+    double mus[];
+    double weights[];
 public:
-    RBFNN();
+    RBFNN(int in_K, int in_inputSize);
     RBFNN(const RBFNN& orig);
     virtual ~RBFNN();
+    void trainNetwork();
+    double functionApproximation();
 private:
 
 };

@@ -6,13 +6,25 @@
  */
 
 #include "RBFNN.h"
+#include <vector>
 
-RBFNN::RBFNN() {
+RBFNN::RBFNN(int in_K, int in_inputSize) {
+    K = in_K;
+    gamma = 1;
+    inputSize = in_inputSize;
 }
 
 RBFNN::RBFNN(const RBFNN& orig) {
 }
 
 RBFNN::~RBFNN() {
+}
+
+void RBFNN::trainNetwork(){
+    
+}
+
+double RBFNN::functionApproximation(){
+    
 }
 

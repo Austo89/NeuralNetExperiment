@@ -6,6 +6,7 @@
                    projectFiles="true">
       <itemPath>DataGenerator.h</itemPath>
       <itemPath>MultilayerNN.h</itemPath>
+      <itemPath>RBFDataPoint.h</itemPath>
       <itemPath>RBFNN.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -17,6 +18,7 @@
                    projectFiles="true">
       <itemPath>DataGenerator.cpp</itemPath>
       <itemPath>MultilayerNN.cpp</itemPath>
+      <itemPath>RBFDataPoint.cpp</itemPath>
       <itemPath>RBFNN.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
@@ -49,6 +51,10 @@
       <item path="MultilayerNN.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="MultilayerNN.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="RBFDataPoint.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="RBFDataPoint.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="RBFNN.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -84,6 +90,10 @@
       <item path="MultilayerNN.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="MultilayerNN.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="RBFDataPoint.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="RBFDataPoint.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="RBFNN.cpp" ex="false" tool="1" flavor2="0">
       </item>

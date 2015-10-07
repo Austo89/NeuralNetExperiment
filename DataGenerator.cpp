@@ -9,6 +9,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <fstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -26,28 +27,29 @@ void DataGenerator::generateData(int dataNum) {
     //prepare to write to data file
     ofstream dataWriter;
     dataWriter.open("data.txt");
+    dataWriter << inputNum << " " << dataNum << "\n";
 
     for (int d = 0; d < dataNum; d++) {
         //initialize new inputs array
-        int x[inputNum] = {};
+        double x[inputNum] = {};
         dataWriter << "x ";
 
         //generate inputs
         for (int i = 0; i < inputNum; i++) {
-            x[i] = std::rand() % 10;
-            dataWriter << x[i];
+            x[i] = ((double)std::rand()/(double)RAND_MAX) * 10;
+            dataWriter << std::fixed << std::setprecision(8) << x[i];
             dataWriter << " ";
         }
 
 
         dataWriter << "y ";
-        int sum = 0;
+        double sum = 0;
         //calculate rosenbrock function for the inputs
         for (int i = 0; i < inputNum - 1; i++) {
             sum += ((1 - x[i]) * (1 - x[i])) + 100 *
                     ((x[i + 1] - (x[i] * x[i])) * (x[i + 1] - (x[i] * x[i])));
         }
-        dataWriter << sum;
+        dataWriter << std::fixed << std::setprecision(8) << sum;
         dataWriter << "\n";
     }
 

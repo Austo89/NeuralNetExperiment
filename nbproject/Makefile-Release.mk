@@ -37,6 +37,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/DataGenerator.o \
 	${OBJECTDIR}/MultilayerNN.o \
+	${OBJECTDIR}/RBFDataPoint.o \
 	${OBJECTDIR}/RBFNN.o \
 	${OBJECTDIR}/main.o
 
@@ -74,6 +75,11 @@ ${OBJECTDIR}/MultilayerNN.o: MultilayerNN.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/MultilayerNN.o MultilayerNN.cpp
+
+${OBJECTDIR}/RBFDataPoint.o: RBFDataPoint.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/RBFDataPoint.o RBFDataPoint.cpp
 
 ${OBJECTDIR}/RBFNN.o: RBFNN.cpp 
 	${MKDIR} -p ${OBJECTDIR}
