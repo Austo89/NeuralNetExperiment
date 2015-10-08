@@ -18,8 +18,8 @@ using namespace std;
  */
 int main(int argc, char** argv) {
 
-    Algorithm mlp = MultilayerNN(1, 4);
-    Experiment e(mlp, 6, 100);
+    Algorithm mlp = MultilayerNN(1,3,0.001,.001,2000000000,0.01);
+    Experiment e(mlp, 2, 500);
     e.runExperiment();
 
     return 0;

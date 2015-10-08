@@ -45,19 +45,25 @@ void DataGenerator::generateData(int dataNum) {
 
         //generate inputs
         for (int i = 0; i < inputNum; i++) {
-            x[i] = rd() % 10;
+            x[i] = rd() % 2;
             dataWriter << x[i];
             dataWriter << ",";
         }
 
 
         //dataWriter << "y ";
-        int sum = 0;
+        int sum;
+        if ((x[0] == 1 || x[1] == 1) && (x[0] + x[1] < 2)) sum = 1;
+        else sum = 0;
+
         //calculate rosenbrock function for the inputs
-        for (int i = 0; i < inputNum - 1; i++) {
+
+
+
+        /* for (int i = 0; i < inputNum - 1; i++) {
             sum += ((1 - x[i]) * (1 - x[i])) + 100 *
                     ((x[i + 1] - (x[i] * x[i])) * (x[i + 1] - (x[i] * x[i])));
-        }
+        } */
         dataWriter << sum;
         dataWriter << ",";
     }

@@ -3,3 +3,7 @@
 //
 
 #include "Algorithm.h"
+
+
+vector<float> Algorithm::train(vector<vector<float>> tset) {
+}

@@ -4,16 +4,18 @@
 
 #include "Experiment.h"
 #include "DataGenerator.h"
+#include "Algorithm.h"
+#include "MultilayerNN.h"
 #include <unordered_set>
 #include <stdlib.h>
 #include <fstream>
 #include <iostream>
-#include<vector>
+#include <vector>
 #include <random>
 
 Experiment::Experiment(Algorithm _a, int _inputs, int _n) {
     // Set parameters
-    a = _a;
+    //a = _a;
     n = _n;
     inputs = _inputs;
 
@@ -94,14 +96,26 @@ void Experiment::printMatrix(vector<vector<float>> v) {
 }
 
 bool Experiment::runExperiment() {
-    // Set first data iteration
+
+
+    MultilayerNN nn = MultilayerNN(3,5,0.1,0.01,100,0.00001);
+
     nextIteration();
-    cout << "Training data: \n";
-    printMatrix(trainingData);
-    cout << endl;
-    cout << "Testing data: \n";
-    printMatrix(testingData);
-    cout << endl;
+
+    vector<float> results = nn.train(trainingData);
+
+    for (auto &result : results) {
+        cout << result << endl;
+    }
+
+    // 5X
+    /* for (int i = 0; i < 5; i++) {
+        nextIteration();
+        // 2 CV
+        for (int j = 0; j < 2; j++) {
+            nextFold();
+        }
+    } */
 
     return true;
 }

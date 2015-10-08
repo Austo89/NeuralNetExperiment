@@ -5,12 +5,14 @@
 #ifndef ASSIGNMENT2_ALGORITHM_H
 #define ASSIGNMENT2_ALGORITHM_H
 
+#include <vector>
+
+using namespace std;
 
 class Algorithm {
 
 public:
-
-
+    vector<float> train(vector<vector<float>> tset);
 };
 
 

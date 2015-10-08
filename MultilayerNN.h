@@ -7,11 +7,15 @@
 
 #include "Algorithm.h"
 #include <vector>
+#include <math.h>
 
 using namespace std;
 
 #ifndef MULTILAYERNN_H
 #define	MULTILAYERNN_H
+
+// Derivative of tanh
+#define sech2(x)                                (1.0 - (tanh(x) * tanh(x)))
 
 // Helper functions for finding a specific weight
 // Input to first hidden
@@ -27,10 +31,11 @@ using namespace std;
 
 // Helper functions to calculate deltas
 // For output nodes
-#define delta_output(outNode, target)           outputNodes.at(outNode) * (1.0f- outputNodes.at(outNode)) * (target - outputNodes.at(outNode));
+#define delta_output(outNode, target)           (target - outputNodes.at(outNode));
+// outputNodes.at(outNode) * (1.0f- outputNodes.at(outNode)) *
 
 
-class MultilayerNN : public Algorithm {
+class MultilayerNN : virtual public Algorithm {
 
 private:
 
@@ -39,7 +44,9 @@ private:
     int hiddenLayerCount;
     int hiddenNodesPerLayer;
     float momentum;
-    float teachingStep;
+    float learningRate;
+    int iterations;
+    float targetMSE;
     vector<vector<float>> weights;          // Weight between layer i and j
     vector<vector<float>> tempWeights;
     vector<vector<float>> previousWeights;  // Stores weights from last pattern
@@ -59,10 +66,11 @@ private:
     float trainOne(vector<float> tuple);
 
 public:
-    MultilayerNN(int hiddenLayers, int hiddenNodes);
+    MultilayerNN(int hiddenLayers, int hiddenNodes, float momentum, float teachingStep,
+                 int iterations, float targetMSE);
     MultilayerNN(const MultilayerNN& orig);
     virtual ~MultilayerNN();
-    vector<float> train(vector<vector<float>> tset, int iterations, float targetMSE);
+    vector<float> train(vector<vector<float>> tset);
 
 
 };
