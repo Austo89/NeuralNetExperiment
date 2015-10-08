@@ -10,6 +10,8 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
+#include <random>
+
 
 using namespace std;
 
@@ -36,7 +38,7 @@ void DataGenerator::generateData(int dataNum) {
 
         //generate inputs
         for (int i = 0; i < inputNum; i++) {
-            x[i] = ((double)std::rand()/(double)RAND_MAX) * 10;
+            x[i] = ((double) std::rand() / (double) RAND_MAX) * 10;
             dataWriter << std::fixed << std::setprecision(8) << x[i];
             dataWriter << " ";
         }
@@ -44,13 +46,49 @@ void DataGenerator::generateData(int dataNum) {
 
         dataWriter << "y ";
         double sum = 0;
-        //calculate rosenbrock function for the inputs
-        for (int i = 0; i < inputNum - 1; i++) {
-            sum += ((1 - x[i]) * (1 - x[i])) + 100 *
-                    ((x[i + 1] - (x[i] * x[i])) * (x[i + 1] - (x[i] * x[i])));
+        dataWriter.open("data.txt", ofstream::out | ofstream::trunc);
+
+        // Random data generator
+        random_device rd;
+
+        // Check for stream error
+        if (dataWriter.fail()) {
+            cerr << "open stream failure: " << strerror(errno) << '\n';
         }
-        dataWriter << std::fixed << std::setprecision(8) << sum;
-        dataWriter << "\n";
+
+        int x[inputNum];
+
+        for (int d = 0; d < dataNum; d++) {
+            //initialize new inputs array
+
+            //dataWriter << "x ";
+
+            //generate inputs
+            for (int i = 0; i < inputNum; i++) {
+                x[i] = rd() % 2;
+                dataWriter << x[i];
+                dataWriter << ",";
+            }
+
+
+            //dataWriter << "y ";
+            int sum;
+            if ((x[0] == 1 || x[1] == 1) && (x[0] + x[1] < 2)) sum = 1;
+            else sum = 0;
+
+            //calculate rosenbrock function for the inputs
+
+
+
+            for (int i = 0; i < inputNum - 1; i++) {
+                sum += ((1 - x[i]) * (1 - x[i])) + 100 *
+                        ((x[i + 1] - (x[i] * x[i])) * (x[i + 1] - (x[i] * x[i])));
+            }
+            dataWriter << std::fixed << std::setprecision(8) << sum;
+            dataWriter << "\n";
+        }
+        dataWriter << sum;
+        dataWriter << ",";
     }
 
     dataWriter.close();
