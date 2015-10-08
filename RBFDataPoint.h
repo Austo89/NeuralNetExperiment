@@ -9,12 +9,13 @@
 #define	RBFDATAPOINT_H
 
 class RBFDataPoint {
-    int x[];
+    double x[];
     int inputSize;
 public:
     RBFDataPoint(int in_inputSize);
     RBFDataPoint(const RBFDataPoint& orig);
     virtual ~RBFDataPoint();
+    void setData(double in[]);
 private:
 
 };
