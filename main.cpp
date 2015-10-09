@@ -17,10 +17,13 @@ using namespace std;
  * 
  */
 int main(int argc, char** argv) {
+    DataGenerator steve = DataGenerator(6);
+    steve.generateData(200);
 
-    Algorithm mlp = MultilayerNN(1,3,0.001,.001,2000000000,0.01);
-    Experiment e(mlp, 2, 500);
-    e.runExperiment();
+
+    //Algorithm mlp = MultilayerNN(1,3,0.001,.001,2000000000,0.01);
+    //Experiment e(mlp, 2, 500);
+    //e.runExperiment();
 
     return 0;
 }

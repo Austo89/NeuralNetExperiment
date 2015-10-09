@@ -6,7 +6,6 @@
  */
 
 #include "RBFNN.h"
-#include <vector>
 
 RBFNN::RBFNN(int in_K, int in_inputSize) {
     K = in_K;
@@ -20,7 +19,7 @@ RBFNN::RBFNN(const RBFNN& orig) {
 RBFNN::~RBFNN() {
 }
 
-void RBFNN::trainNetwork(){
+void RBFNN::trainNetwork(vector<vector<double>> data){
     
 }
 

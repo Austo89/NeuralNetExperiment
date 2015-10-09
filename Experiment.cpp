@@ -66,7 +66,7 @@ void Experiment::getData() {
     // Open data file for reading
     dataStream.open("data.txt");
     if (dataStream.fail()) {                    // Check for stream error
-        cerr << "Read stream failure: " << strerror(errno) << '\n';
+        //cerr << "Read stream failure: " << strerror(errno) << '\n';
     }
     // Loop through each tuple
     for (int t = 0; t < n; t = t+1) {
@@ -76,7 +76,7 @@ void Experiment::getData() {
         // Loop through each input, plus output
         for (int n = 0; n < inputs + 1; n = n+1) {
             getline(dataStream, cell, ',');      // Read next "block" from data file
-            dataset.at(t).push_back(stof(cell));       // Add this cell to dataset
+            //dataset.at(t).push_back(stof(cell));       // Add this cell to dataset
         }
     }
 

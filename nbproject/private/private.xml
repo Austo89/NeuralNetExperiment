@@ -9,11 +9,12 @@
         <group>
             <file>file:/C:/Users/Austo89/Documents/NetBeansProjects/NeuralNetExperiment/DataGenerator.h</file>
             <file>file:/C:/Users/Austo89/Documents/NetBeansProjects/NeuralNetExperiment/RBFNN.h</file>
-            <file>file:/C:/Users/Austo89/Documents/NetBeansProjects/NeuralNetExperiment/main.cpp</file>
+            <file>file:/C:/Users/Austo89/Documents/NetBeansProjects/NeuralNetExperiment/Experiment.cpp</file>
             <file>file:/C:/Users/Austo89/Documents/NetBeansProjects/NeuralNetExperiment/DataGenerator.cpp</file>
             <file>file:/C:/Users/Austo89/Documents/NetBeansProjects/NeuralNetExperiment/RBFDataPoint.h</file>
+            <file>file:/C:/Users/Austo89/Documents/NetBeansProjects/NeuralNetExperiment/Makefile</file>
             <file>file:/C:/Users/Austo89/Documents/NetBeansProjects/NeuralNetExperiment/RBFNN.cpp</file>
-            <file>file:/C:/Users/Austo89/Documents/NetBeansProjects/NeuralNetExperiment/RBFDataPoint.cpp</file>
+            <file>file:/C:/Users/Austo89/Documents/NetBeansProjects/NeuralNetExperiment/Experiment.h</file>
         </group>
     </open-files>
 </project-private>

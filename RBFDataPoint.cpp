@@ -17,7 +17,7 @@ RBFDataPoint::RBFDataPoint(const RBFDataPoint& orig) {
 RBFDataPoint::~RBFDataPoint() {
 }
 
-RBFDataPoint::setData(double in[]){
+void RBFDataPoint::setData(double in[]){
     for (int i = 0; i < inputSize; i++){
         x[i] = in[i];
     }

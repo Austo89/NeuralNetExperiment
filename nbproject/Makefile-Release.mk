@@ -36,6 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/DataGenerator.o \
+	${OBJECTDIR}/Experiment.o \
 	${OBJECTDIR}/MultilayerNN.o \
 	${OBJECTDIR}/RBFDataPoint.o \
 	${OBJECTDIR}/RBFNN.o \
@@ -70,6 +71,11 @@ ${OBJECTDIR}/DataGenerator.o: DataGenerator.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DataGenerator.o DataGenerator.cpp
+
+${OBJECTDIR}/Experiment.o: Experiment.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Experiment.o Experiment.cpp
 
 ${OBJECTDIR}/MultilayerNN.o: MultilayerNN.cpp 
 	${MKDIR} -p ${OBJECTDIR}
