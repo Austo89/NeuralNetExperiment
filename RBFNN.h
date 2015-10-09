@@ -18,8 +18,9 @@ class RBFNN {
     int inputSize;
     int K;
     double gamma;
-    vector<double> mus;
+    vector<vector<double>> mus;
     vector<double> weights;
+    vector<vector<int>> clusters;
 public:
     RBFNN(int in_K, int in_inputSize);
     RBFNN(const RBFNN& orig);
@@ -27,7 +28,8 @@ public:
     void trainNetwork(vector<vector<double>> data);
     double functionApproximation();
 private:
-
+    double findClustering(vector<vector<double>> data);
+    void findMus(vector<vector<double>> data);
 };
 
 #endif	/* RBFNN_H */

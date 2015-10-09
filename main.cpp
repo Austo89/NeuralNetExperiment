@@ -17,8 +17,8 @@ using namespace std;
  * 
  */
 int main(int argc, char** argv) {
-    DataGenerator steve = DataGenerator(6);
-    steve.generateData(200);
+    //DataGenerator steve = DataGenerator(6);
+    //steve.generateData(200);
 
 
     //Algorithm mlp = MultilayerNN(1,3,0.001,.001,2000000000,0.01);
