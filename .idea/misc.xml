@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="CMakeWorkspace" PROJECT_DIR="$PROJECT_DIR$" />
+=======
+  <component name="CMakeWorkspace" PROJECT_DIR="C:\Users\Austo89\Documents\NetBeansProjects\NeuralNetExperiment" />
+>>>>>>> 2633cbc9f8667269ec1473c1fa9f82123b0c37bc
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />

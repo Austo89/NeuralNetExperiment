@@ -13,6 +13,8 @@ set(SOURCE_FILES
     main.cpp
     MultilayerNN.cpp
     MultilayerNN.h
+    RBFDataPoint.cpp
+    RBFDataPoint.h
     RBFNN.cpp
     RBFNN.h)
 
