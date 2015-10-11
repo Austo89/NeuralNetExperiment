@@ -35,7 +35,7 @@ using namespace std;
 // outputNodes.at(outNode) * (1.0f- outputNodes.at(outNode)) *
 
 
-class MultilayerNN : virtual public Algorithm {
+class MultilayerNN : public Algorithm {
 
 private:
 
@@ -70,9 +70,7 @@ public:
                  int iterations, float targetMSE);
     MultilayerNN(const MultilayerNN& orig);
     virtual ~MultilayerNN();
-    vector<float> train(vector<vector<float>> tset);
-
-
+    vector<float> train(vector<vector<float>> tset) override;
 };
 
 #endif	/* MULTILAYERNN_H */

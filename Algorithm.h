@@ -12,7 +12,9 @@ using namespace std;
 class Algorithm {
 
 public:
-    vector<float> train(vector<vector<float>> tset);
+    virtual vector<float> train(vector<vector<float>> tset) {
+        return vector<float>();
+    }
 };
 
 

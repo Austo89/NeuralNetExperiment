@@ -19,7 +19,7 @@ using namespace std;
 int main(int argc, char** argv) {
 
     Algorithm mlp = MultilayerNN(1,3,0.001,.001,2000000000,0.01);
-    Experiment e(mlp, 2, 500);
+    Experiment e(mlp, 6, 15000);
     e.runExperiment();
 
     return 0;

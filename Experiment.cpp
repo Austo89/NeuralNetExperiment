@@ -15,7 +15,7 @@
 
 Experiment::Experiment(Algorithm _a, int _inputs, int _n) {
     // Set parameters
-    //a = _a;
+    a = _a;
     n = _n;
     inputs = _inputs;
 
@@ -97,25 +97,26 @@ void Experiment::printMatrix(vector<vector<float>> v) {
 
 bool Experiment::runExperiment() {
 
+    //MultilayerNN nn = MultilayerNN(6,12,0.0002,0.0002,100,0.0000001);
 
-    MultilayerNN nn = MultilayerNN(3,5,0.1,0.01,100,0.00001);
+    DataGenerator::normalizeData(dataset);
 
     nextIteration();
 
-    vector<float> results = nn.train(trainingData);
+    //printMatrix(trainingData);r
 
-    for (auto &result : results) {
-        cout << result << endl;
-    }
+    vector<float> results = a.train(trainingData);
+
 
     // 5X
-    /* for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 5; i++) {
         nextIteration();
         // 2 CV
         for (int j = 0; j < 2; j++) {
             nextFold();
+
         }
-    } */
+    }
 
     return true;
 }

@@ -12,7 +12,7 @@ using namespace std;
 
 class Experiment {
 
-    //Algorithm a;    // The algorithm object to run excperiemnt on
+    Algorithm a;    // The algorithm object to run excperiemnt on
     int inputs;     // Number of x for Rosenbrock function
     int n;          // Sample size
 

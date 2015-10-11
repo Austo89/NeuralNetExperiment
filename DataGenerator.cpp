@@ -10,6 +10,7 @@
 #include <iostream>
 #include <fstream>
 #include <random>
+#include <iomanip>
 
 using namespace std;
 
@@ -36,7 +37,7 @@ void DataGenerator::generateData(int dataNum) {
         cerr << "open stream failure: " << strerror(errno) << '\n';
     }
 
-    int x[inputNum];
+    double x[inputNum];
 
     for (int d = 0; d < dataNum; d++) {
         //initialize new inputs array
@@ -45,29 +46,53 @@ void DataGenerator::generateData(int dataNum) {
 
         //generate inputs
         for (int i = 0; i < inputNum; i++) {
-            x[i] = rd() % 2;
-            dataWriter << x[i];
+            x[i] = ((float) std::rand() / (float) RAND_MAX) * 10;
+            dataWriter << std::fixed << std::setprecision(8) << x[i];
             dataWriter << ",";
         }
 
-
         //dataWriter << "y ";
-        int sum;
-        if ((x[0] == 1 || x[1] == 1) && (x[0] + x[1] < 2)) sum = 1;
-        else sum = 0;
+        double sum = 0;
+        //double sum = sin(x[0] + x[1]);
+        // double sum = sin(x[0] * x[1] * x[3]);
+        //int sum;
+        //if ((x[0] == 1 || x[1] == 1) && (x[0] + x[1] < 2)) sum = 1;
+        //else sum = 0;
 
         //calculate rosenbrock function for the inputs
 
 
 
-        /* for (int i = 0; i < inputNum - 1; i++) {
+        for (int i = 0; i < inputNum - 1; i++) {
             sum += ((1 - x[i]) * (1 - x[i])) + 100 *
                     ((x[i + 1] - (x[i] * x[i])) * (x[i + 1] - (x[i] * x[i])));
-        } */
+        }
         dataWriter << sum;
         dataWriter << ",";
     }
 
     dataWriter.close();
+}
+
+void DataGenerator::normalizeData(vector<vector<float>>& data) {
+    // Loop column by column
+    float max;
+    float min;
+    vector<float> tempCol;
+    for (int col = 0; col < data[0].size(); col++) {
+        // Create column vector
+        tempCol.resize(data.size());
+        for (int r = 0; r < data.size(); r++) {
+            tempCol.push_back(data[r][col]);
+        }
+        // Find min/max
+        min = *(min_element(begin(tempCol), end(tempCol)));
+        max = *(max_element(begin(tempCol), end(tempCol)));
+
+        // Normalize column
+        for (int r = 0; r < data.size(); r++) {
+            data[r][col] = -1 + (data[r][col] - min) * (1 - (-1)) / (max - min);
+        }
+    }
 }
 
