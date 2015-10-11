@@ -13,9 +13,10 @@
 #include <vector>
 #include <random>
 
-Experiment::Experiment(Algorithm _a, int _inputs, int _n) {
+Experiment::Experiment(vector<Algorithm*> _a, int _inputs, int _n) {
     // Set parameters
     a = _a;
+
     n = _n;
     inputs = _inputs;
 
@@ -97,15 +98,9 @@ void Experiment::printMatrix(vector<vector<float>> v) {
 
 bool Experiment::runExperiment() {
 
-    //MultilayerNN nn = MultilayerNN(6,12,0.0002,0.0002,100,0.0000001);
+    testResults.resize(10);
 
-    DataGenerator::normalizeData(dataset);
-
-    nextIteration();
-
-    //printMatrix(trainingData);r
-
-    vector<float> results = a.train(trainingData);
+    MultilayerNN mlp = MultilayerNN(6,12,0.0002,0.0002,100,0.0000001);
 
 
     // 5X
@@ -114,6 +109,13 @@ bool Experiment::runExperiment() {
         // 2 CV
         for (int j = 0; j < 2; j++) {
             nextFold();
+
+            // Train and test all algorithms
+            for (auto algo : a) {
+                algo -> reset();
+                algo -> train(trainingData);
+                testResults.push_back(algo -> test(testingData));
+            }
 
         }
     }

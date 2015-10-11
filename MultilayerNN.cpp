@@ -12,8 +12,9 @@
 #include <math.h>
 #include <vector>
 #include <algorithm>
+#include <string>
 
-MultilayerNN::MultilayerNN(int hiddenLayers, int hiddenNodes, float _momentum, float _learningRate,
+MultilayerNN::MultilayerNN(int hiddenLayers, int hiddenNodes, string _actFunc, float _momentum, float _learningRate,
                            int _iterations, float _targetMSE) {
     hiddenLayerCount = hiddenLayers;
     hiddenNodesPerLayer = hiddenNodes;
@@ -21,6 +22,7 @@ MultilayerNN::MultilayerNN(int hiddenLayers, int hiddenNodes, float _momentum, f
     learningRate = _learningRate;
     iterations = _iterations;
     targetMSE = _targetMSE;
+    if (_actFunc.compare("sigmoid") == 0) sigmoid = true;
 }
 
 MultilayerNN::MultilayerNN(const MultilayerNN& orig) {
@@ -36,13 +38,13 @@ vector<float> MultilayerNN::train(vector<vector<float>> tset) {
     random_device rd;
     uniform_int_distribution<int> dist;
 
-    dataWriter.open("nnOutput.txt", ofstream::out | ofstream::trunc);
-    dataWriter2.open("weights.txt", ofstream::out | ofstream::trunc);
+    dataWriter.open("MLP_ITerror.txt", ofstream::out | ofstream::trunc);
+    dataWriter2.open("MLP_weights.txt", ofstream::out | ofstream::trunc);
 
     float mse = 999.99;
     int iteration = 0;
     vector<float> errors;
-    while (mse / targetMSE > 1.01) {
+    while (mse / targetMSE > 1.01 && iteration < iterations) {
            //&& iteration < iterations) {
         // Zero out MSE
         mse = 0;
@@ -159,7 +161,9 @@ void MultilayerNN::feedForward() {
             hiddenNodes.at(0).at(hiddenNode) += inputNodes.at(inNode) * weight_input_hidden(inNode, hiddenNode);
         }
         // Activate hidden node!!!
-        hiddenNodes.at(0).at(hiddenNode) = activate(hiddenNodes.at(0).at(hiddenNode));
+        if (sigmoid) {
+            hiddenNodes.at(0).at(hiddenNode) = activate(hiddenNodes.at(0).at(hiddenNode));
+        }
     }
 
     // Next we feed between all hidden layers: hidLay represents hiddenNodes vector index
@@ -175,7 +179,9 @@ void MultilayerNN::feedForward() {
                 hiddenNodes.at(hidLay).at(thisNode) += hiddenNodes.at(hidLay-1).at(prevNode) * weight_hidden_hidden(hidLay, prevNode, thisNode);
             }
             // Activate this node!!!
-            hiddenNodes.at(hidLay).at(thisNode) = activate(hiddenNodes.at(hidLay).at(thisNode));
+            if (sigmoid) {
+                hiddenNodes.at(hidLay).at(thisNode) = activate(hiddenNodes.at(hidLay).at(thisNode));
+            }
         }
     }
 
@@ -278,6 +284,43 @@ float MultilayerNN::addErrorForIteration(float target) {
 
 float MultilayerNN::activate(float S) {
     return tanh(S);
+}
+
+runResult MultilayerNN::test(vector<vector<float>> testSet) {
+    runResult r;
+    //ofstream dataWriter;
+    //ofstream dataWriter2;
+
+    //dataWriter.open("nnOutput.txt", ofstream::out | ofstream::trunc);
+    //dataWriter2.open("weights.txt", ofstream::out | ofstream::trunc);
+
+    float mse = 0;
+
+        for (int i = 0; i < testSet.size(); i++) {
+            mse += testOne(testSet.at(i));
+        }
+
+        mse /= testSet.size();
+
+        r.algo = "MLP";
+        r.error = mse;
+
+    return r;
+}
+
+float MultilayerNN::testOne(vector<float> tuple) {
+    // Set input nodes to testing tuple values
+    for (int i = 0; i < inputNodes.size(); i++) {
+        inputNodes.at(i) = tuple.at(i);
+    }
+    // Run tuple through net
+    feedForward;
+    // Return squared error
+    return addErrorForIteration(tuple.back());
+}
+
+void MultilayerNN::reset() {
+    topoSet = false;
 }
 
 
