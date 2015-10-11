@@ -31,7 +31,14 @@ MultilayerNN::~MultilayerNN() {
 
 vector<float> MultilayerNN::train(vector<vector<float>> tset) {
     ofstream dataWriter;
+    ofstream dataWriter2;
+
+    random_device rd;
+    uniform_int_distribution<int> dist;
+
     dataWriter.open("nnOutput.txt", ofstream::out | ofstream::trunc);
+    dataWriter2.open("weights.txt", ofstream::out | ofstream::trunc);
+
     float mse = 999.99;
     int iteration = 0;
     vector<float> errors;
@@ -40,12 +47,18 @@ vector<float> MultilayerNN::train(vector<vector<float>> tset) {
         // Zero out MSE
         mse = 0;
         // Shuffle training set for randomness
-        random_shuffle(tset.begin(), tset.end());
+        //random_shuffle(tset.begin(), tset.end());
 
         // Train with each tuple
-        for (auto &tuple : tset) {
+       /* for (auto &tuple : tset) {
             mse += trainOne(tuple);
+        } */
+
+        for (int i = 0; i < tset.size(); i++) {
+            mse += trainOne(tset.at(dist(rd) % tset.size()));
         }
+
+        dataWriter2 << iteration << "," << weights.at(0).at(2) << "," << weights.back().at(2) << endl;
 
         mse /= tset.size();
 
@@ -60,6 +73,7 @@ vector<float> MultilayerNN::train(vector<vector<float>> tset) {
 }
 
 float MultilayerNN::trainOne(vector<float> tuple) {
+
     float error;
     // Set up topography & randomize weights if first run
     if (!topoSet) {

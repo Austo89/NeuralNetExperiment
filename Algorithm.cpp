@@ -4,6 +4,6 @@
 
 #include "Algorithm.h"
 
-
-vector<float> Algorithm::train(vector<vector<float>> tset) {
-}
+/*vector<float> Algorithm::train(vector<vector<float>> tset) {
+    return vector<float>();
+}*/

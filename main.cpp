@@ -28,7 +28,9 @@ int main(int argc, char** argv) {
 
     e.getDoubleData();
 
-    cout << "fuck!!!";
+    //Experiment e(mlp, 6, 15000);
+    //e.runExperiment();
+
     return 0;
 }
 
