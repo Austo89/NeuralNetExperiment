@@ -21,14 +21,17 @@ int main(int argc, char** argv) {
     //DataGenerator steve = DataGenerator(6);
     //steve.generateData(200);
 
-
-    Algorithm mlp = MultilayerNN(1,3,0.001,.001,2000000000,0.01);
-    Experiment e(mlp, 2, 500);
+    //Algorithm mlp = MultilayerNN(1,3,0.001,.001,2000000000,0.01);
+    //Experiment e(mlp, 2, 500);
     //e.runExperiment();
 
-    e.getDoubleData();
+    //e.getDoubleData();
 
     //Experiment e(mlp, 6, 15000);
+    //e.runExperiment();
+    //MultilayerNN mlp = MultilayerNN(1,3,0.001,.001,2000000000,0.01);
+    //MultilayerNN mlp2 = MultilayerNN(1,3,0.001,.001,2000000000,0.01);
+    //Experiment e({&mlp, &mlp2}, 6, 15000);
     //e.runExperiment();
 
     return 0;

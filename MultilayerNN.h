@@ -47,6 +47,7 @@ private:
     float learningRate;
     int iterations;
     float targetMSE;
+    bool sigmoid = false;
     vector<vector<float>> weights;          // Weight between layer i and j
     vector<vector<float>> tempWeights;
     vector<vector<float>> previousWeights;  // Stores weights from last pattern
@@ -63,14 +64,18 @@ private:
     void backProp(float target);            // Calculate error and propagate deltas back
     void updateWeights();                   // Update weights
     float activate(float S);                // Sigmoid activation function (logistic)
-    float trainOne(vector<float> tuple);
+    float trainOne(vector<float> tuple);    // Feeds a single tuple through network and adjusts erros accordingly
+    float testOne(vector<float> tuple);     // Tests a single tuple
 
 public:
-    MultilayerNN(int hiddenLayers, int hiddenNodes, float momentum, float teachingStep,
+    MultilayerNN(int hiddenLayers, int hiddenNodes, string actFunc, float momentum, float learningRate,
                  int iterations, float targetMSE);
     MultilayerNN(const MultilayerNN& orig);
+    virtual void reset() override;
     virtual ~MultilayerNN();
-    vector<float> train(vector<vector<float>> tset) override;
+    virtual vector<float> train(vector<vector<float>> tset) override;
+    virtual runResult test(vector<vector<float>> testSet) override;
+
 };
 
 #endif	/* MULTILAYERNN_H */

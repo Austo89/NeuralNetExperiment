@@ -12,7 +12,12 @@ using namespace std;
 
 class Experiment {
 
-    Algorithm a;    // The algorithm object to run excperiemnt on
+    struct runResult {
+        string algo;
+        float error;
+    };
+
+    vector<Algorithm*> a;    // The algorithm object to run excperiemnt on
     int inputs;     // Number of x for Rosenbrock function
     int n;          // Sample size
 
@@ -26,8 +31,10 @@ class Experiment {
     vector<vector<double>> doubleTestingInput;
     vector<double> doubleTestingOutput;
 
+    vector<runResult> testResults;
+
 public:
-    Experiment(Algorithm _a, int inputs, int n);
+    Experiment(vector<Algorithm*> _a, int inputs, int n);
     bool runExperiment();
     void getDoubleData();
 private:
