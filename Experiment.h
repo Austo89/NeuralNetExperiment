@@ -19,15 +19,23 @@ class Experiment {
     vector<vector<float>> dataset;
     vector<vector<float>> trainingData;
     vector<vector<float>> testingData;
+    vector<vector<double>> doubleInputData;
+    vector<double> doubleOutputData;
+    vector<vector<double>> doubleTrainingInput;
+    vector<double> doubleTrainingOutput;
+    vector<vector<double>> doubleTestingInput;
+    vector<double> doubleTestingOutput;
 
 public:
     Experiment(Algorithm _a, int inputs, int n);
     bool runExperiment();
+    void getDoubleData();
 private:
     void getData();
     void nextFold();                            // For re-folding
     void nextIteration();                       // For next iteration of CV
     void printMatrix(vector<vector<float>> v);  // Helper method for outputting dataset
+
 };
 
 

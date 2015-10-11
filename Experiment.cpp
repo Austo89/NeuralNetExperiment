@@ -6,6 +6,7 @@
 #include "DataGenerator.h"
 #include "Algorithm.h"
 #include "MultilayerNN.h"
+#include "RBFNN.h"
 #include <unordered_set>
 #include <stdlib.h>
 #include <fstream>
@@ -118,4 +119,82 @@ bool Experiment::runExperiment() {
     } */
 
     return true;
+}
+
+void Experiment::getDoubleData() {
+    //prep file reader
+    ifstream dataReader;
+    string junk;
+
+    try{
+        dataReader.open("data2input.txt");
+    } catch (ifstream::failure e){
+        cout << "butts!";
+        cin >> junk;
+    }
+
+    //get the input size and number of data points
+    int input_Size, data_Num;
+    dataReader >> input_Size >> data_Num;
+
+
+    //read in all the inputs
+    for (int i = 0; i < data_Num; i++){
+        dataReader >> junk;
+        vector<double> temp_vec;
+        for (int j = 0; j < input_Size; j++){
+            double temp;
+            dataReader >> temp;
+            temp_vec.push_back(temp);
+        }
+        doubleInputData.push_back(temp_vec);
+        double temp_output;
+        dataReader >> junk;
+        dataReader >> temp_output;
+        doubleOutputData.push_back(temp_output);
+    }
+
+    //temporary set up of inputs and outputs for testing
+    for (int i = 0; i < 100; i++){
+        doubleTrainingInput.push_back(doubleInputData[i]);
+        doubleTrainingOutput.push_back(doubleOutputData[i]);
+    }
+    for (int i = 100; i < 200; i++){
+        doubleTestingInput.push_back(doubleInputData[i]);
+        doubleTestingOutput.push_back(doubleOutputData[i]);
+    }
+
+    RBFNN steve = RBFNN(9, input_Size);
+    steve.trainNetwork(doubleTrainingInput,doubleTrainingOutput);
+
+    RBFNN tim = RBFNN(7, input_Size);
+    tim.trainNetwork(doubleTrainingInput,doubleTrainingOutput);
+
+    RBFNN eric = RBFNN(5, input_Size);
+    eric.trainNetwork(doubleTrainingInput,doubleTrainingOutput);
+
+    vector<double> test;
+    test.push_back(6.90001032);
+    test.push_back(5.05418397);
+
+    vector<double> test2;
+    test2.push_back(5.91490540);
+    test2.push_back(5.54784913);
+
+    vector<double> test3;
+    test3.push_back(9.49143368);
+    test3.push_back(3.07335744);
+
+    double testrun1 = steve.runModel(test);
+    double testrun2 = steve.runModel(test2);
+    double testrun3 = steve.runModel(test3);
+
+    double testrun4 = tim.runModel(test);
+    double testrun5 = tim.runModel(test2);
+    double testrun6 = tim.runModel(test3);
+
+    double testrun7 = eric.runModel(test);
+    double testrun8 = eric.runModel(test2);
+    double testrun9 = eric.runModel(test3);
+    cout << "yes!";
 }
