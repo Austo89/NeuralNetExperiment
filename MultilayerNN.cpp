@@ -261,7 +261,7 @@ void MultilayerNN::backProp(float target) {
 void MultilayerNN::updateWeights() {
     // Save previous weights
     //tempWeights = weights;
-    
+
     // If no hidden layers, only one weight layer to update
     if (hiddenLayerCount < 1) {
         for (int inNode = 0; inNode < inputNodes.size(); inNode++) {

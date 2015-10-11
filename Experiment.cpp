@@ -130,7 +130,7 @@ void Experiment::getDoubleData() {
     try{
         dataReader.open("data2input.txt");
     } catch (ifstream::failure e){
-        cout << "butts!";
+        cout << "failed to open file!";
         cin >> junk;
     }
 
