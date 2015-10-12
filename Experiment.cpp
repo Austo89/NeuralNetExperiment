@@ -15,6 +15,7 @@
 #include <random>
 #include <float.h>
 #include <sstream>
+#include <string.h>
 
 Experiment::Experiment(vector<Algorithm *> _a, int _inputs, int _n) {
     // Set parameters
@@ -25,6 +26,15 @@ Experiment::Experiment(vector<Algorithm *> _a, int _inputs, int _n) {
 
     // Generate dataset
     getData();
+    DataGenerator::normalizeData(dataset);
+}
+
+Experiment::Experiment(vector<Algorithm*> _a, string file, int _inputs, int _n) {
+    a = _a;
+    inputs = _inputs;
+    n = _n;
+    readData(file);
+    DataGenerator::normalizeData(dataset);
 }
 
 Experiment::Experiment() {
@@ -74,7 +84,7 @@ void Experiment::getData() {
     // Open data file for reading
     dataStream.open("data.txt");
     if (dataStream.fail()) {                    // Check for stream error
-        //cerr << "Read stream failure: " << strerror(errno) << '\n';
+        cerr << "Read stream failure: " << strerror(errno) << '\n';
     }
     // Loop through each tuple
     for (int t = 0; t < n; t = t + 1) {
@@ -84,12 +94,36 @@ void Experiment::getData() {
         // Loop through each input, plus output
         for (int n = 0; n < inputs + 1; n = n + 1) {
             getline(dataStream, cell, ',');      // Read next "block" from data file
-            //dataset.at(t).push_back(stof(cell));       // Add this cell to dataset
+            dataset.at(t).push_back(stof(cell));       // Add this cell to dataset
         }
     }
 
     //printMatrix(dataset);
 
+}
+
+void Experiment::readData(string file) {
+    ifstream dataStream;
+    string cell;
+
+    // Open data file for reading
+    dataStream.open(file);
+    if (dataStream.fail()) {                    // Check for stream error
+        cerr << "Read stream failure: " << strerror(errno) << '\n';
+    }
+    // Loop through each tuple
+    for (int t = 0; t < n; t = t+1) {
+        vector<float> newTuple;                 // Create empty vector
+        dataset.push_back(newTuple);            // Add new tuple to dataset
+
+        // Loop through each input, plus output
+        for (int n = 0; n < inputs + 1; n = n+1) {
+            getline(dataStream, cell, ',');      // Read next "block" from data file
+            dataset.at(t).push_back(stof(cell));       // Add this cell to dataset
+        }
+    }
+
+    //printMatrix(dataset);
 }
 
 void Experiment::printMatrix(vector<vector<float>> v) {
@@ -105,27 +139,36 @@ void Experiment::printMatrix(vector<vector<float>> v) {
 
 bool Experiment::runExperiment() {
 
-    testResults.resize(10);
-
-    //MultilayerNN mlp = MultilayerNN(6,12,0.0002,0.0002,100,0.0000001);
-
+    vector<fstream> resultStream;
+    for (int rs = 0; rs < a.size(); rs++) {
+        resultStream.push_back(fstream());
+        resultStream.back().open("results_" + a[rs]->className() + "_" + to_string(inputs) + "input_" + a[rs]->nickname + ".txt", ofstream::out | ofstream::trunc);
+        // Check for stream error
+        if (resultStream.back().fail()) {
+            cerr << "open stream failure at rs: " << to_string(rs) << strerror(errno) << '\n';
+        }
+    }
 
     // 5X
-//    for (int i = 0; i < 5; i++) {
-//        nextIteration();
-//        // 2 CV
-//        for (int j = 0; j < 2; j++) {
-//            nextFold();
-//
-//            // Train and test all algorithms
-//            for (auto algo : a) {
-//                algo -> reset();
-//                algo -> train(trainingData);
-//                testResults.push_back(algo -> test(testingData));
-//            }
-//
-//        }
-//    }
+    for (int i = 0; i < 5; i++) {
+        nextIteration();
+        // 2 CV
+        for (int j = 0; j < 2; j++) {
+            nextFold();
+
+            // Train and test all algorithms
+            for (int alg = 0; alg < a.size(); alg++) {
+                a[alg] -> reset();
+                a[alg] -> train(trainingData);
+                resultStream.at(alg) << a[alg] -> test(testingData) << endl;
+            }
+        }
+    }
+
+    // Close writers
+    for (int rs = 0; rs < a.size(); rs++) {
+        resultStream[rs].close();
+    }
 
     return true;
 }

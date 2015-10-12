@@ -11,6 +11,9 @@
     </ADDITIONAL_GENERATION_ENVIRONMENT>
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="68f074c5-1fda-498f-962b-6729f4f6b37b" name="Default" comment="" />
+=======
     <list default="true" id="4e0c2c20-7cf6-4cce-a90e-8155303e3eff" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Algorithm.h" afterPath="$PROJECT_DIR$/Algorithm.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataGenerator.cpp" afterPath="$PROJECT_DIR$/DataGenerator.cpp" />
@@ -24,6 +27,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.cpp" afterPath="$PROJECT_DIR$/main.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
+>>>>>>> 2633cbc9f8667269ec1473c1fa9f82123b0c37bc
     <ignored path="NeuralNetExperiment.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -53,18 +57,67 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="RBFNN.cpp" pinned="false" current-in-tab="true">
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+      <file leaf-file-name="DataGenerator.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DataGenerator.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MultilayerNN.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MultilayerNN.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="49" column="25" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="16" column="3" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MultilayerNN.cpp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MultilayerNN.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6471936">
+              <caret line="74" column="1" selection-start-line="74" selection-start-column="1" selection-end-line="74" selection-end-column="1" />
+              <folding>
+                <element signature="e#102#127#0" expanded="true" />
+=======
+      <file leaf-file-name="RBFNN.cpp" pinned="false" current-in-tab="true">
+=======
+      <file leaf-file-name="RBFNN.cpp" pinned="false" current-in-tab="false">
+>>>>>>> 9d0019a4075fd420dca2b461d9d1ee4dfd380b91
+>>>>>>> 4c6d32bf0482c1321a2f2185bbcab58b502fcf05
         <entry file="file://$PROJECT_DIR$/RBFNN.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="1.4522613">
               <caret line="46" column="45" selection-start-line="46" selection-start-column="45" selection-end-line="46" selection-end-column="45" />
               <folding>
                 <element signature="e#95#114#0" expanded="true" />
+>>>>>>> 2633cbc9f8667269ec1473c1fa9f82123b0c37bc
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="RBFNN.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RBFNN.h">
           <provider selected="true" editor-type-id="text-editor">
@@ -75,15 +128,34 @@
           </provider>
         </entry>
       </file>
+=======
+<<<<<<< HEAD
+      <file leaf-file-name="data.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="50" selection-start-line="0" selection-start-column="50" selection-end-line="0" selection-end-column="50" />
+=======
+>>>>>>> 4c6d32bf0482c1321a2f2185bbcab58b502fcf05
       <file leaf-file-name="DataGenerator.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DataGenerator.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
+<<<<<<< HEAD
               <caret line="32" column="38" selection-start-line="31" selection-start-column="4" selection-end-line="32" selection-end-column="38" />
+=======
+<<<<<<< HEAD
+              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+>>>>>>> 2633cbc9f8667269ec1473c1fa9f82123b0c37bc
+              <folding />
+=======
+              <caret line="123" column="61" selection-start-line="123" selection-start-column="61" selection-end-line="123" selection-end-column="61" />
+>>>>>>> 4c6d32bf0482c1321a2f2185bbcab58b502fcf05
               <folding>
                 <element signature="e#103#129#0" expanded="true" />
                 <element signature="e#227#244#0" expanded="true" />
               </folding>
+>>>>>>> 9d0019a4075fd420dca2b461d9d1ee4dfd380b91
             </state>
           </provider>
         </entry>
@@ -92,7 +164,19 @@
         <entry file="file://$PROJECT_DIR$/Experiment.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
+<<<<<<< HEAD
               <caret line="313" column="26" selection-start-line="313" selection-start-column="26" selection-end-line="313" selection-end-column="26" />
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+              <caret line="114" column="32" selection-start-line="114" selection-start-column="32" selection-end-line="114" selection-end-column="32" />
+=======
+              <caret line="198" column="0" selection-start-line="198" selection-start-column="0" selection-end-line="198" selection-end-column="0" />
+>>>>>>> 2633cbc9f8667269ec1473c1fa9f82123b0c37bc
+=======
+              <caret line="137" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+>>>>>>> 9d0019a4075fd420dca2b461d9d1ee4dfd380b91
+>>>>>>> 4c6d32bf0482c1321a2f2185bbcab58b502fcf05
               <folding>
                 <element signature="e#46#69#0" expanded="true" />
               </folding>
@@ -104,26 +188,73 @@
         <entry file="file://$PROJECT_DIR$/Experiment.h">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
+<<<<<<< HEAD
               <caret line="47" column="21" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
               <folding>
                 <element signature="e#97#114#0" expanded="true" />
               </folding>
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+              <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+              <folding>
+                <element signature="e#97#114#0" expanded="true" />
+              </folding>
+=======
+              <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
+=======
+              <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+>>>>>>> 9d0019a4075fd420dca2b461d9d1ee4dfd380b91
+              <folding />
+>>>>>>> 2633cbc9f8667269ec1473c1fa9f82123b0c37bc
+>>>>>>> 4c6d32bf0482c1321a2f2185bbcab58b502fcf05
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+      <file leaf-file-name="Algorithm.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Algorithm.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="19" selection-end-column="6" />
+              <folding>
+                <element signature="e#111#128#0" expanded="true" />
+=======
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
+=======
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
+>>>>>>> 9d0019a4075fd420dca2b461d9d1ee4dfd380b91
+>>>>>>> 4c6d32bf0482c1321a2f2185bbcab58b502fcf05
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="32" column="33" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
               <folding>
                 <element signature="e#93#111#0" expanded="true" />
+>>>>>>> 2633cbc9f8667269ec1473c1fa9f82123b0c37bc
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file leaf-file-name="Algorithm.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Algorithm.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+=======
+>>>>>>> 2633cbc9f8667269ec1473c1fa9f82123b0c37bc
     </leaf>
   </component>
   <component name="Git.Settings">
@@ -132,16 +263,35 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/data.txt" />
+        <option value="$PROJECT_DIR$/DataGenerator.h" />
+        <option value="$PROJECT_DIR$/DataGenerator.cpp" />
+        <option value="$PROJECT_DIR$/Algorithm.cpp" />
+        <option value="$PROJECT_DIR$/main.cpp" />
+        <option value="$PROJECT_DIR$/Algorithm.h" />
+        <option value="$PROJECT_DIR$/Experiment.h" />
+        <option value="$PROJECT_DIR$/Experiment.cpp" />
+        <option value="$PROJECT_DIR$/MultilayerNN.h" />
+        <option value="$PROJECT_DIR$/MultilayerNN.cpp" />
+=======
         <option value="$PROJECT_DIR$/RBFDataPoint.cpp" />
         <option value="$PROJECT_DIR$/MultilayerNN.h" />
         <option value="$PROJECT_DIR$/Algorithm.h" />
         <option value="$PROJECT_DIR$/MultilayerNN.cpp" />
         <option value="$PROJECT_DIR$/RBFNN.h" />
         <option value="$PROJECT_DIR$/RBFNN.cpp" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/Experiment.h" />
+=======
+<<<<<<< HEAD
+>>>>>>> 2633cbc9f8667269ec1473c1fa9f82123b0c37bc
+=======
+>>>>>>> 4c6d32bf0482c1321a2f2185bbcab58b502fcf05
         <option value="$PROJECT_DIR$/DataGenerator.cpp" />
         <option value="$PROJECT_DIR$/Experiment.cpp" />
         <option value="$PROJECT_DIR$/main.cpp" />
+>>>>>>> 9d0019a4075fd420dca2b461d9d1ee4dfd380b91
       </list>
     </option>
   </component>
@@ -153,10 +303,17 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
+<<<<<<< HEAD
+    <option name="x" value="8" />
+    <option name="y" value="35" />
+    <option name="width" value="1912" />
+    <option name="height" value="970" />
+=======
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
     <option name="height" value="744" />
+>>>>>>> 2633cbc9f8667269ec1473c1fa9f82123b0c37bc
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -205,9 +362,21 @@
   </component>
   <component name="PropertiesComponent">
     <property name="recentsLimit" value="5" />
+<<<<<<< HEAD
+    <property name="FullScreen" value="false" />
+=======
+<<<<<<< HEAD
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="true" />
     <property name="FullScreen" value="false" />
   </component>
+  <component name="RunManager" selected="Application.NeuralNetExperiment">
+=======
+>>>>>>> 4c6d32bf0482c1321a2f2185bbcab58b502fcf05
+  </component>
   <component name="RunManager" selected="Application.Build All">
+>>>>>>> 2633cbc9f8667269ec1473c1fa9f82123b0c37bc
     <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="NeuralNetExperiment" TARGET_NAME="NeuralNetExperiment" CONFIG_NAME="Debug">
       <envs />
       <method />
@@ -221,11 +390,19 @@
       <envs />
       <method />
     </configuration>
+<<<<<<< HEAD
+    <configuration default="false" name="NeuralNetExperiment" type="CMakeRunConfiguration" factoryName="Application" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="NeuralNetExperiment" TARGET_NAME="NeuralNetExperiment" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="NeuralNetExperiment" RUN_TARGET_NAME="NeuralNetExperiment">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Build All" type="CMakeRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="NeuralNetExperiment" TARGET_NAME="NeuralNetExperiment" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="NeuralNetExperiment" RUN_TARGET_NAME="NeuralNetExperiment">
+=======
     <configuration default="false" name="NeuralNetExperiment" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="NeuralNetExperiment" TARGET_NAME="NeuralNetExperiment" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="NeuralNetExperiment" RUN_TARGET_NAME="NeuralNetExperiment">
       <envs />
       <method />
     </configuration>
     <configuration default="false" name="Build All" type="CMakeRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS="FALSE" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="NeuralNetExperiment" RUN_TARGET_NAME="NeuralNetExperiment" EXPLICIT_BUILD_TARGET_NAME="all">
+>>>>>>> 2633cbc9f8667269ec1473c1fa9f82123b0c37bc
       <envs />
       <method />
     </configuration>
@@ -240,14 +417,44 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
+      <changelist id="68f074c5-1fda-498f-962b-6729f4f6b37b" name="Default" comment="" />
+      <created>1444452361380</created>
+      <option name="number" value="Default" />
+      <updated>1444452361380</updated>
+=======
       <changelist id="4e0c2c20-7cf6-4cce-a90e-8155303e3eff" name="Default" comment="" />
       <created>1444347833185</created>
       <option name="number" value="Default" />
       <updated>1444347833185</updated>
+>>>>>>> 2633cbc9f8667269ec1473c1fa9f82123b0c37bc
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
+    <frame x="8" y="35" width="1912" height="970" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963374" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39955604" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963374" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963374" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+=======
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
@@ -269,6 +476,14 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 2633cbc9f8667269ec1473c1fa9f82123b0c37bc
+=======
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+>>>>>>> 9d0019a4075fd420dca2b461d9d1ee4dfd380b91
+>>>>>>> 4c6d32bf0482c1321a2f2185bbcab58b502fcf05
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -284,14 +499,84 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+<<<<<<< HEAD
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
       <option name="time" value="58" />
+=======
+<<<<<<< HEAD
+      <option name="time" value="8" />
+=======
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Experiment.cpp</url>
+          <line>199</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/RBFNN.cpp</url>
+          <line>226</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+      </breakpoints>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="35" />
+>>>>>>> 2633cbc9f8667269ec1473c1fa9f82123b0c37bc
+>>>>>>> 4c6d32bf0482c1321a2f2185bbcab58b502fcf05
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algorithm.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MultilayerNN.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+          <folding>
+            <element signature="e#102#127#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="48" selection-start-line="0" selection-start-column="48" selection-end-line="0" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Experiment.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="100" column="57" selection-start-line="100" selection-start-column="57" selection-end-line="100" selection-end-column="57" />
+          <folding>
+            <element signature="e#46#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+=======
+>>>>>>> 2633cbc9f8667269ec1473c1fa9f82123b0c37bc
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -300,6 +585,46 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/DataGenerator.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="47" column="27" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MultilayerNN.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algorithm.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MultilayerNN.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+          <folding>
+            <element signature="e#102#127#0" expanded="true" />
+=======
     <entry file="file://$PROJECT_DIR$/RBFNN.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -373,18 +698,127 @@
           <caret line="211" column="0" selection-start-line="211" selection-start-column="0" selection-end-line="211" selection-end-column="0" />
           <folding>
             <element signature="e#95#114#0" expanded="true" />
+>>>>>>> 2633cbc9f8667269ec1473c1fa9f82123b0c37bc
           </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/data.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="48" selection-start-line="0" selection-start-column="48" selection-end-line="0" selection-end-column="48" />
+=======
+    <entry file="file://$PROJECT_DIR$/DataGenerator.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+<<<<<<< HEAD
+          <caret line="123" column="61" selection-start-line="123" selection-start-column="61" selection-end-line="123" selection-end-column="61" />
+=======
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+<<<<<<< HEAD
+>>>>>>> 2633cbc9f8667269ec1473c1fa9f82123b0c37bc
+          <folding />
+=======
+>>>>>>> 4c6d32bf0482c1321a2f2185bbcab58b502fcf05
+          <folding>
+            <element signature="e#103#129#0" expanded="true" />
+            <element signature="e#227#244#0" expanded="true" />
+          </folding>
+>>>>>>> 9d0019a4075fd420dca2b461d9d1ee4dfd380b91
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Experiment.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+<<<<<<< HEAD
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+<<<<<<< HEAD
+          <caret line="100" column="57" selection-start-line="100" selection-start-column="57" selection-end-line="100" selection-end-column="57" />
+=======
+          <caret line="173" column="0" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
+>>>>>>> 2633cbc9f8667269ec1473c1fa9f82123b0c37bc
+>>>>>>> 4c6d32bf0482c1321a2f2185bbcab58b502fcf05
+          <folding>
+            <element signature="e#46#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DataGenerator.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="123" column="61" selection-start-line="123" selection-start-column="61" selection-end-line="123" selection-end-column="61" />
+          <caret line="47" column="27" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="27" />
+=======
+    <entry file="file://$PROJECT_DIR$/Experiment.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+<<<<<<< HEAD
+          <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
           <folding>
-            <element signature="e#103#129#0" expanded="true" />
-            <element signature="e#227#244#0" expanded="true" />
+            <element signature="e#97#114#0" expanded="true" />
           </folding>
+=======
+          <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
+>>>>>>> 2633cbc9f8667269ec1473c1fa9f82123b0c37bc
+          <folding />
+>>>>>>> 4c6d32bf0482c1321a2f2185bbcab58b502fcf05
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+<<<<<<< HEAD
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+=======
+<<<<<<< HEAD
+          <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algorithm.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MultilayerNN.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+          <folding>
+            <element signature="e#102#127#0" expanded="true" />
+=======
+          <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+>>>>>>> 4c6d32bf0482c1321a2f2185bbcab58b502fcf05
+          <folding>
+            <element signature="e#93#111#0" expanded="true" />
+>>>>>>> 2633cbc9f8667269ec1473c1fa9f82123b0c37bc
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/data.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="48" selection-start-line="0" selection-start-column="48" selection-end-line="0" selection-end-column="48" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -398,27 +832,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Experiment.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
-          <folding>
-            <element signature="e#97#114#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding>
-            <element signature="e#93#111#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+<<<<<<< HEAD
+=======
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -426,7 +842,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/DataGenerator.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="47" column="27" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="3" selection-end-column="2" />
+=======
+    <entry file="file://$PROJECT_DIR$/RBFDataPoint.cpp">
+>>>>>>> 4c6d32bf0482c1321a2f2185bbcab58b502fcf05
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/RBFNN.cpp">
+=======
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/DataGenerator.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.23869346">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> 2633cbc9f8667269ec1473c1fa9f82123b0c37bc
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/Algorithm.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MultilayerNN.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+          <folding>
+            <element signature="e#102#127#0" expanded="true" />
+=======
+=======
+>>>>>>> 9d0019a4075fd420dca2b461d9d1ee4dfd380b91
+    <entry file="file://$PROJECT_DIR$/RBFDataPoint.h">
+>>>>>>> 4c6d32bf0482c1321a2f2185bbcab58b502fcf05
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -441,42 +911,149 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding>
+<<<<<<< HEAD
             <element signature="e#103#129#0" expanded="true" />
             <element signature="e#227#244#0" expanded="true" />
+=======
+            <element signature="e#99#121#0" expanded="false" />
+>>>>>>> 2633cbc9f8667269ec1473c1fa9f82123b0c37bc
+>>>>>>> 4c6d32bf0482c1321a2f2185bbcab58b502fcf05
           </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/Experiment.cpp">
+=======
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/data.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="48" selection-start-line="0" selection-start-column="48" selection-end-line="0" selection-end-column="48" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Experiment.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="173" column="0" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
+          <caret line="100" column="55" selection-start-line="100" selection-start-column="55" selection-end-line="100" selection-end-column="55" />
           <folding>
             <element signature="e#46#69#0" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/MultilayerNN.cpp">
+>>>>>>> 4c6d32bf0482c1321a2f2185bbcab58b502fcf05
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="173" column="0" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
+          <folding>
+<<<<<<< HEAD
+            <element signature="e#46#69#0" expanded="true" />
+=======
+            <element signature="e#102#127#0" expanded="false" />
+>>>>>>> 2633cbc9f8667269ec1473c1fa9f82123b0c37bc
+>>>>>>> 4c6d32bf0482c1321a2f2185bbcab58b502fcf05
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/Experiment.h">
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
-          <folding>
-            <element signature="e#97#114#0" expanded="true" />
-          </folding>
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataGenerator.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+          <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MultilayerNN.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="e#102#127#0" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+=======
+    <entry file="file://$PROJECT_DIR$/RBFNN.h">
+>>>>>>> 9d0019a4075fd420dca2b461d9d1ee4dfd380b91
+>>>>>>> 4c6d32bf0482c1321a2f2185bbcab58b502fcf05
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
+          <folding>
+<<<<<<< HEAD
+            <element signature="e#97#114#0" expanded="true" />
+=======
+<<<<<<< HEAD
             <element signature="e#93#111#0" expanded="true" />
+>>>>>>> 2633cbc9f8667269ec1473c1fa9f82123b0c37bc
+=======
+            <element signature="e#91#108#0" expanded="false" />
+>>>>>>> 9d0019a4075fd420dca2b461d9d1ee4dfd380b91
+>>>>>>> 4c6d32bf0482c1321a2f2185bbcab58b502fcf05
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+          <folding>
+            <element signature="e#93#111#0" expanded="true" />
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/data.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="48" selection-start-line="0" selection-start-column="48" selection-end-line="0" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Experiment.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="100" column="55" selection-start-line="100" selection-start-column="55" selection-end-line="100" selection-end-column="55" />
+          <folding>
+            <element signature="e#46#69#0" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/RBFNN.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="52" selection-start-line="34" selection-start-column="52" selection-end-line="34" selection-end-column="52" />
+          <folding>
+            <element signature="e#91#108#0" expanded="true" />
+>>>>>>> 2633cbc9f8667269ec1473c1fa9f82123b0c37bc
+>>>>>>> 4c6d32bf0482c1321a2f2185bbcab58b502fcf05
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/RBFDataPoint.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -484,6 +1061,35 @@
         </state>
       </provider>
     </entry>
+=======
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+    <entry file="file://$PROJECT_DIR$/Experiment.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
+>>>>>>> 2633cbc9f8667269ec1473c1fa9f82123b0c37bc
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/DataGenerator.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+    <entry file="file://C:/cygwin64/usr/src/debug/gcc-4.9.3-1/x86_64-pc-cygwin/libstdc++-v3/include/ext/stdio_sync_filebuf.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33144477">
+          <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+>>>>>>> 2633cbc9f8667269ec1473c1fa9f82123b0c37bc
+=======
+>>>>>>> 4c6d32bf0482c1321a2f2185bbcab58b502fcf05
     <entry file="file://C:/cygwin64/usr/src/debug/gcc-4.9.3-1/x86_64-pc-cygwin/libstdc++-v3/include/ext/stdio_sync_filebuf.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33144477">
@@ -503,18 +1109,76 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.34844193">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> 9d0019a4075fd420dca2b461d9d1ee4dfd380b91
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/Algorithm.cpp">
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/MultilayerNN.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#102#127#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="48" selection-start-line="0" selection-start-column="48" selection-end-line="0" selection-end-column="48" />
+=======
+    <entry file="file://C:/cygwin64/lib/gcc/x86_64-pc-cygwin/4.9.3/include/c++/bits/stl_vector.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="654" column="0" selection-start-line="654" selection-start-column="0" selection-end-line="654" selection-end-column="0" />
+>>>>>>> 2633cbc9f8667269ec1473c1fa9f82123b0c37bc
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/Experiment.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="93" column="19" selection-start-line="93" selection-start-column="19" selection-end-line="93" selection-end-column="19" />
+          <folding>
+            <element signature="e#46#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nnOutput.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> 2633cbc9f8667269ec1473c1fa9f82123b0c37bc
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+=======
+    <entry file="file://$PROJECT_DIR$/RBFNN.cpp">
+>>>>>>> 4c6d32bf0482c1321a2f2185bbcab58b502fcf05
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/Algorithm.h">
+=======
+    <entry file="file://$PROJECT_DIR$/DataGenerator.h">
+>>>>>>> 9d0019a4075fd420dca2b461d9d1ee4dfd380b91
+>>>>>>> 4c6d32bf0482c1321a2f2185bbcab58b502fcf05
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4874372">
           <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
@@ -530,14 +1194,61 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/MultilayerNN.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-71.06896">
           <caret line="307" column="6" selection-start-line="307" selection-start-column="6" selection-end-line="307" selection-end-column="6" />
+=======
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/RBFNN.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataGenerator.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6180556">
+          <caret line="24" column="2" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="50" selection-start-line="0" selection-start-column="50" selection-end-line="0" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Algorithm.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataGenerator.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="3" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
+>>>>>>> 4c6d32bf0482c1321a2f2185bbcab58b502fcf05
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/RBFDataPoint.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -550,13 +1261,77 @@
         <state vertical-scroll-proportion="0.33144477">
           <caret line="319" column="0" selection-start-line="319" selection-start-column="0" selection-end-line="319" selection-end-column="0" />
           <folding />
+=======
+    <entry file="file://$PROJECT_DIR$/Algorithm.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="19" selection-end-column="6" />
+          <folding>
+            <element signature="e#111#128#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Experiment.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+          <folding>
+            <element signature="e#97#114#0" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/Experiment.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="137" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+          <folding>
+            <element signature="e#46#69#0" expanded="true" />
+>>>>>>> 2633cbc9f8667269ec1473c1fa9f82123b0c37bc
+          </folding>
+>>>>>>> 4c6d32bf0482c1321a2f2185bbcab58b502fcf05
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/MultilayerNN.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="49" column="25" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
+=======
     <entry file="file://$PROJECT_DIR$/DataGenerator.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+<<<<<<< HEAD
           <caret line="32" column="38" selection-start-line="31" selection-start-column="4" selection-end-line="32" selection-end-column="38" />
+=======
+<<<<<<< HEAD
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+>>>>>>> 2633cbc9f8667269ec1473c1fa9f82123b0c37bc
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/Experiment.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="114" column="32" selection-start-line="114" selection-start-column="32" selection-end-line="114" selection-end-column="32" />
+          <folding>
+            <element signature="e#46#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MultilayerNN.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6471936">
+          <caret line="74" column="1" selection-start-line="74" selection-start-column="1" selection-end-line="74" selection-end-column="1" />
+          <folding>
+            <element signature="e#102#127#0" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/RBFNN.cpp">
+=======
+          <caret line="123" column="61" selection-start-line="123" selection-start-column="61" selection-end-line="123" selection-end-column="61" />
+>>>>>>> 4c6d32bf0482c1321a2f2185bbcab58b502fcf05
           <folding>
             <element signature="e#103#129#0" expanded="true" />
             <element signature="e#227#244#0" expanded="true" />
@@ -573,11 +1348,17 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
+>>>>>>> 9d0019a4075fd420dca2b461d9d1ee4dfd380b91
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="32" column="33" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
           <folding>
+<<<<<<< HEAD
+            <element signature="e#95#114#0" expanded="true" />
+>>>>>>> 2633cbc9f8667269ec1473c1fa9f82123b0c37bc
+=======
             <element signature="e#93#111#0" expanded="true" />
+>>>>>>> 9d0019a4075fd420dca2b461d9d1ee4dfd380b91
           </folding>
         </state>
       </provider>

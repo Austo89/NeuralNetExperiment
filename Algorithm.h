@@ -14,6 +14,8 @@ class Algorithm {
 
 public:
 
+    string nickname;
+
     struct runResult {
         string algo;
         float error;
@@ -23,9 +25,12 @@ public:
         return vector<float>();
     }
 
-    virtual void test(vector<vector<float>> testSet) {
-        //return runResult();
+
+    virtual float test(vector<vector<float>> testSet) {
+        return 0;
     }
+
+    virtual string const className() { return ""; }
 
     virtual void reset() {
 

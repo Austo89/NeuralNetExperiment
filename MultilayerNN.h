@@ -8,6 +8,7 @@
 #include "Algorithm.h"
 #include <vector>
 #include <math.h>
+#include <string>
 
 using namespace std;
 
@@ -48,6 +49,8 @@ private:
     int iterations;
     float targetMSE;
     bool sigmoid = false;
+    int noDecreaseCount = 0;
+    float lastError;
     vector<vector<float>> weights;          // Weight between layer i and j
     vector<vector<float>> tempWeights;
     vector<vector<float>> previousWeights;  // Stores weights from last pattern
@@ -68,13 +71,16 @@ private:
     float testOne(vector<float> tuple);     // Tests a single tuple
 
 public:
-    MultilayerNN(int hiddenLayers, int hiddenNodes, string actFunc, float momentum, float learningRate,
+    MultilayerNN(string nickname, int hiddenLayers, int hiddenNodes, string actFunc, float momentum, float learningRate,
                  int iterations, float targetMSE);
     MultilayerNN(const MultilayerNN& orig);
     virtual void reset() override;
     virtual ~MultilayerNN();
     virtual vector<float> train(vector<vector<float>> tset) override;
-    virtual void test(vector<vector<float>> testSet) override;
+
+    virtual float test(vector<vector<float>> testSet) override;
+    virtual string const className() override { return "MLP"; }
+
 
 };
 

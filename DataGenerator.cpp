@@ -9,11 +9,13 @@
 #include <cstdlib>
 #include <iostream>
 #include <fstream>
-#include <iomanip>
-//#include <random>
 #include <random>
 #include <iomanip>
+
 #include <bits/algorithmfwd.h>
+
+#include <time.h>
+
 
 using namespace std;
 
@@ -28,6 +30,9 @@ DataGenerator::~DataGenerator() {
 }
 
 void DataGenerator::generateData(int dataNum) {
+    // Seed rand
+    srand(time(NULL));
+
     //prepare to write to data file
     ofstream dataWriter;
     dataWriter.open("dataxinput.txt");
@@ -54,17 +59,17 @@ void DataGenerator::generateData(int dataNum) {
         double sum = 0;
 
 
+
         for (int i = 0; i < inputNum - 1; i++) {
-            sum += ((1 - x[i]) * (1 - x[i])) + 100 * ((x[i + 1] - (x[i] * x[i])) * (x[i + 1] - (x[i] * x[i])));
+            sum += ((1 - x[i]) * (1 - x[i])) + 100 *
+                                               ((x[i + 1] - (x[i] * x[i])) * (x[i + 1] - (x[i] * x[i])));
         }
 
         dataWriter << std::fixed << std::setprecision(8) << sum;
-        dataWriter << "\n";
+        dataWriter << ",";
 
     }
-
     dataWriter.close();
-
 }
 
 void DataGenerator::normalizeData(vector<vector<float>> &data) {
@@ -79,8 +84,8 @@ void DataGenerator::normalizeData(vector<vector<float>> &data) {
             tempCol.push_back(data[r][col]);
         }
         // Find min/max
-        //min = *(min_element(begin(tempCol), end(tempCol)));
-        //max = *(max_element(begin(tempCol), end(tempCol)));
+        min = *(min_element(begin(tempCol), end(tempCol)));
+        max = *(max_element(begin(tempCol), end(tempCol)));
 
         // Normalize column
         for (int r = 0; r < data.size(); r++) {
