@@ -32,7 +32,7 @@ public:
 private:
     double findClustering(vector<vector<double>> data);
     void findMus(vector<vector<double>> data);
-    double adeline(vector<vector<double>> data,vector<vector<double>> phi_matrix, vector<double> ys, int index);
+    double adaline(vector<vector<double>> data,vector<vector<double>> phi_matrix, vector<double> ys, int index);
     double phi(vector<double> x, vector<double> mu);
 };
 

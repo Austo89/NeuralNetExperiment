@@ -94,7 +94,7 @@ void Experiment::getData() {
         // Loop through each input, plus output
         for (int n = 0; n < inputs + 1; n = n + 1) {
             getline(dataStream, cell, ',');      // Read next "block" from data file
-            dataset.at(t).push_back(stof(cell));       // Add this cell to dataset
+            //dataset.at(t).push_back(stof(cell));       // Add this cell to dataset
         }
     }
 
@@ -119,7 +119,7 @@ void Experiment::readData(string file) {
         // Loop through each input, plus output
         for (int n = 0; n < inputs + 1; n = n+1) {
             getline(dataStream, cell, ',');      // Read next "block" from data file
-            dataset.at(t).push_back(stof(cell));       // Add this cell to dataset
+            //dataset.at(t).push_back(stof(cell));       // Add this cell to dataset
         }
     }
 
@@ -233,7 +233,7 @@ void Experiment::normalizeData() {
         }
     }
 
-    //normalize the data points
+    //normalize the data points between -1 and 1
     for (int i = 0; i < doubleInputData.size(); i++) {
         doubleOutputData[i] = -1 + (doubleOutputData[i] - min) * (1 - (-1)) / (max - min);
 
@@ -262,6 +262,8 @@ void Experiment::splitData(){
     int iter = 0;
     int total = doubleInputData.size() / 2;
     while (trainCount < total && testCount < total){
+
+        // coin flip on whether it goes in training or testing
         int flip = rand() % 2;
         if (flip == 0){
             doubleTrainingInput.push_back(doubleInputData[iter]);
@@ -274,6 +276,8 @@ void Experiment::splitData(){
         }
         iter++;
     }
+
+    //dump remaining elements in the other half
     if(trainCount > testCount){
         while(iter < doubleInputData.size()){
             doubleTestingInput.push_back(doubleInputData[iter]);
@@ -291,9 +295,13 @@ void Experiment::splitData(){
 }
 
 void Experiment::runRBFNExperiment() {
+    //initialize
     double sqr_err;
     double sqr_err2;
     double sqr_err3;
+
+    //normalize the read in data
+    normalizeData();
 
     ostringstream convert;   // stream used for the conversion
 
@@ -301,10 +309,12 @@ void Experiment::runRBFNExperiment() {
 
     string inputString = convert.str();
 
+    //create file names for output
     string output1 = "RBFN" + inputString + "I7K";
     string output2 = "RBFN" + inputString + "I9K";
     string output3  = "RBFN" + inputString + "I13K";
 
+    // open document streams
     ofstream dataWriter1;
     dataWriter1.open(output1);
     ofstream dataWriter2;
@@ -314,6 +324,7 @@ void Experiment::runRBFNExperiment() {
 
     // 5x2 Cross Validation
     for (int i = 0; i < 5; i++) {
+        //create RBFNs with 7, 9, 13 clusters
         RBFNN testNetwork(7, inputs);
         RBFNN testNetwork2(9, inputs);
         RBFNN testNetwork3(13, inputs);
@@ -322,32 +333,33 @@ void Experiment::runRBFNExperiment() {
         double temp2;
         double temp3;
 
-        normalizeData();
-
+        //do a new random split of the data
         splitData();
 
+        //train each network for this split
         testNetwork.trainNetwork(doubleTrainingInput, doubleTrainingOutput);
         testNetwork2.trainNetwork(doubleTrainingInput, doubleTrainingOutput);
         testNetwork3.trainNetwork(doubleTrainingInput, doubleTrainingOutput);
 
-
+        //test each network on this split
         temp1 = testNetwork.runTestData(doubleTestingInput, doubleTestingOutput);
         temp2 = testNetwork2.runTestData(doubleTestingInput, doubleTestingOutput);
         temp3 = testNetwork3.runTestData(doubleTestingInput, doubleTestingOutput);
 
+        //accumulate the error
         sqr_err += temp1;
         sqr_err2 += temp2;
         sqr_err3 += temp3;
 
-        //write to file
+        //write to file for analysis
         dataWriter1 << temp1 << " ";
         dataWriter2 << temp2 << " ";
         dataWriter3 << temp3 << " ";
 
+        //flip the training and testing around and re-run
         testNetwork.trainNetwork(doubleTestingInput, doubleTestingOutput);
         testNetwork2.trainNetwork(doubleTestingInput, doubleTestingOutput);
         testNetwork3.trainNetwork(doubleTestingInput, doubleTestingOutput);
-
 
         temp1 = testNetwork.runTestData(doubleTrainingInput, doubleTrainingOutput);
         temp2 = testNetwork2.runTestData(doubleTrainingInput, doubleTrainingOutput);
@@ -363,9 +375,18 @@ void Experiment::runRBFNExperiment() {
         dataWriter3 << temp3 << " ";
     }
 
+    //average square error
     sqr_err = sqr_err / 10;
     sqr_err2 = sqr_err2 / 10;
     sqr_err3 = sqr_err3 / 10;
 
-    int stop = 1;
+    //output to file
+    dataWriter1 << sqr_err;
+    dataWriter2 << sqr_err2;
+    dataWriter3 << sqr_err3;
+
+    //close files
+    dataWriter1.close();
+    dataWriter2.close();
+    dataWriter3.close();
 }

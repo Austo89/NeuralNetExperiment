@@ -5,6 +5,8 @@
  * Created on October 5, 2015, 6:21 PM
  */
 
+//Deprecated node storage for data points
+
 #include "RBFDataPoint.h"
 
 RBFDataPoint::RBFDataPoint(int in_inputSize) {

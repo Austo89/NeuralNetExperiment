@@ -17,6 +17,7 @@
 using namespace std;
 
 RBFNN::RBFNN(int in_K, int in_inputSize) {
+    //parameter initilization
     K = in_K;
     eta = 0.02;
     gamma = 1;
@@ -35,10 +36,17 @@ RBFNN::RBFNN(const RBFNN &orig) {
 RBFNN::~RBFNN() {
 }
 
+///////////////////////////////////////////
+// trainNetwork:
+//    Train the network given a set of passed in data points and
+//    expected values
+///////////////////////////////////////////
 
 void RBFNN::trainNetwork(vector<vector<double>> data, vector<double> ys) {
     //find K means - using Lloyd's algorithm
     //pick random mu values
+    
+    //reset new random seed based on system clock
     srand(time(NULL));
 
     for (int j = 0; j < K; j++) {
@@ -105,27 +113,28 @@ void RBFNN::trainNetwork(vector<vector<double>> data, vector<double> ys) {
         phi_matrix.push_back(temp_vec);
     }
 
+
+    //do 3 random restarts to minimize the error
     for (int i = 0; i < 3; i++){
 
+        //iterate over all the data points and minimize the error for each
         for (int j = 0; j < data.size(); j++){
             double d_err = DBL_MAX;
             double last_err = DBL_MAX;
             while (d_err > .001) {
-                double current_err = adeline(data, phi_matrix, ys,j);
+                double current_err = adaline(data, phi_matrix, ys,j);
                 d_err = abs(last_err - current_err);
                 last_err = current_err;
             }
         }
     }
 
-
-
-    //adeline(data,phi_matrix,ys);
 }
 
 
 //////////////////////////////////////////////////////////////
-// Given a set of Mu values, find a new set of cluster for the data
+// findClustering:
+//   Given a set of Mu values, find a new set of cluster for the data
 //////////////////////////////////////////////////////////////
 
 double RBFNN::findClustering(vector<vector<double>> data) {
@@ -169,6 +178,10 @@ double RBFNN::findClustering(vector<vector<double>> data) {
     return error_sum;
 }
 
+///////////////////////////////////////////
+// findMus:
+//    Find the average points of the current clusters
+///////////////////////////////////////////
 
 void RBFNN::findMus(vector<vector<double>> data) {
     //clear old Mus
@@ -204,64 +217,43 @@ void RBFNN::findMus(vector<vector<double>> data) {
     }
 }
 
+///////////////////////////////////////////
+// adaline:
+//    Take the next weight update step in the adaline algorithm
+///////////////////////////////////////////
 
-double RBFNN::adeline(vector<vector<double>> data, vector<vector<double>> phi_matrix, vector<double> ys, int index) {
+double RBFNN::adaline(vector<vector<double>> data, vector<vector<double>> phi_matrix, vector<double> ys, int index) {
+    //initialize
     vector<double> newWeights;
-    vector<double> modelOutput;
-
-
     double err_diff = 0;
-    double d_err = DBL_MAX;
-    double last_err;
 
-
+    //calculate the difference in y and scale by the learning rate
     double random = runModel(data[index]);
     random = ys[index] - random;
     err_diff = random * random;
     random = random * eta;
 
+    // multiply by the derivative
     for (int i = 0; i < K; i++) {
         double what = phi_matrix[index][i] * random;
         newWeights.push_back(what);
     }
 
+    // add the change in weights to the current weights
     for (int i = 0; i < K; i++) {
         weights[i] += newWeights[i];
     }
-
-
-
-
-
-
-//    //find the change in difference
-//    double err_diff = 0;
-//
-//    //calculate current model outputs
-//    for (int i = 0; i < data.size(); i++){
-//        double observed = runModel(data[i]);
-//        modelOutput.push_back(observed);
-//        double diff = (ys[i] - modelOutput[i]);
-//        err_diff += diff * diff;
-//        modelOutput[i] = eta * diff;
-//    }
-//
-//    err_diff = err_diff / (double)data.size();
-//
-//    for(int k = 0; k < K; k++){
-//        double dot_product = 0;
-//        for (int i = 0; i < data.size(); i++){
-//            double temp = phi(data[i],mus[k]) * modelOutput[i];
-//            dot_product += temp;
-//        }
-//        newWeights.push_back(dot_product);
-//
-//        //update the weights
-//        weights[k] = weights[k] + newWeights[k];
-//    }
-
+    
+    //return the new error rate
     return err_diff;
 }
+
+
+///////////////////////////////////////////
+// runModel:
+//    Run an input through the model to estimate an output.
+//    Output is returned as a double.
+///////////////////////////////////////////
 
 double RBFNN::runModel(vector<double> input) {
     double output = 0;
@@ -272,6 +264,12 @@ double RBFNN::runModel(vector<double> input) {
 
     return output;
 }
+
+///////////////////////////////////////////
+// phi:
+//    Calculate the gaussian function given an x vector
+//    and a mean
+///////////////////////////////////////////
 
 double RBFNN::phi(vector<double> x, vector<double> mu) {
     double d_sum = 0;
@@ -288,6 +286,12 @@ double RBFNN::phi(vector<double> x, vector<double> mu) {
 
     return temp;
 }
+
+///////////////////////////////////////////
+// runTestData:
+//    Take a set of inputs and outputs and return the square mean error
+//    for the model outputs compared to the expected outputs
+///////////////////////////////////////////
 
 double RBFNN::runTestData(vector<vector<double>> xs, vector<double> ys) {
     //run all test points and find the mean squared error
