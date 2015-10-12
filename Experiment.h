@@ -35,14 +35,17 @@ class Experiment {
 
 public:
     Experiment(vector<Algorithm*> _a, int inputs, int n);
+    Experiment();
     bool runExperiment();
-    void getDoubleData();
+    void getDoubleData(string inputFile);
+    void runRBFNExperiment();
 private:
     void getData();
     void nextFold();                            // For re-folding
     void nextIteration();                       // For next iteration of CV
     void printMatrix(vector<vector<float>> v);  // Helper method for outputting dataset
-
+    void normalizeData();
+    void splitData();
 };
 
 

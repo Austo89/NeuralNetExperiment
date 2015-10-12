@@ -28,10 +28,11 @@ public:
     virtual ~RBFNN();
     void trainNetwork(vector<vector<double>> data, vector<double> ys);
     double runModel(vector<double> input);
+    double runTestData(vector<vector<double>> xs, vector<double> ys);
 private:
     double findClustering(vector<vector<double>> data);
     void findMus(vector<vector<double>> data);
-    double adeline(vector<vector<double>> data,vector<vector<double>> phi_matrix, vector<double> ys);
+    double adeline(vector<vector<double>> data,vector<vector<double>> phi_matrix, vector<double> ys, int index);
     double phi(vector<double> x, vector<double> mu);
 };
 

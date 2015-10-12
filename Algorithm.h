@@ -23,8 +23,8 @@ public:
         return vector<float>();
     }
 
-    virtual runResult test(vector<vector<float>> testSet) {
-        return runResult();
+    virtual void test(vector<vector<float>> testSet) {
+        //return runResult();
     }
 
     virtual void reset() {

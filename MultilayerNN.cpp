@@ -286,7 +286,7 @@ float MultilayerNN::activate(float S) {
     return tanh(S);
 }
 
-runResult MultilayerNN::test(vector<vector<float>> testSet) {
+void MultilayerNN::test(vector<vector<float>> testSet) {
     runResult r;
     //ofstream dataWriter;
     //ofstream dataWriter2;
@@ -305,7 +305,7 @@ runResult MultilayerNN::test(vector<vector<float>> testSet) {
         r.algo = "MLP";
         r.error = mse;
 
-    return r;
+    //return r;
 }
 
 float MultilayerNN::testOne(vector<float> tuple) {
@@ -314,7 +314,7 @@ float MultilayerNN::testOne(vector<float> tuple) {
         inputNodes.at(i) = tuple.at(i);
     }
     // Run tuple through net
-    feedForward;
+    feedForward();
     // Return squared error
     return addErrorForIteration(tuple.back());
 }

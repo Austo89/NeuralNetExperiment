@@ -74,7 +74,7 @@ public:
     virtual void reset() override;
     virtual ~MultilayerNN();
     virtual vector<float> train(vector<vector<float>> tset) override;
-    virtual runResult test(vector<vector<float>> testSet) override;
+    virtual void test(vector<vector<float>> testSet) override;
 
 };
 

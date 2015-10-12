@@ -11,10 +11,12 @@
 #include <stdlib.h>
 #include <fstream>
 #include <iostream>
-#include <vector>
+#include <string>
 #include <random>
+#include <float.h>
+#include <sstream>
 
-Experiment::Experiment(vector<Algorithm*> _a, int _inputs, int _n) {
+Experiment::Experiment(vector<Algorithm *> _a, int _inputs, int _n) {
     // Set parameters
     a = _a;
 
@@ -25,7 +27,11 @@ Experiment::Experiment(vector<Algorithm*> _a, int _inputs, int _n) {
     getData();
 }
 
-void Experiment::nextIteration () {
+Experiment::Experiment() {
+
+}
+
+void Experiment::nextIteration() {
     // Clear out training and testing data
     trainingData.clear();
     testingData.clear();
@@ -34,13 +40,13 @@ void Experiment::nextIteration () {
     int n = dataset.size() / 2;
     int max = dataset.size();
     random_device rd;
-    uniform_int_distribution<int> dist(0, max-1);
+    uniform_int_distribution<int> dist(0, max - 1);
 
     while (selectedIndices.size() < n) {
         selectedIndices.insert(dist(rd));
     }
     // Add each tuple to proper set set
-    for(int i = 0; i < dataset.size(); i++) {
+    for (int i = 0; i < dataset.size(); i++) {
         if (selectedIndices.count(i) > 0) {
             trainingData.push_back(dataset.at(i));
         } else {
@@ -71,12 +77,12 @@ void Experiment::getData() {
         //cerr << "Read stream failure: " << strerror(errno) << '\n';
     }
     // Loop through each tuple
-    for (int t = 0; t < n; t = t+1) {
+    for (int t = 0; t < n; t = t + 1) {
         vector<float> newTuple;                 // Create empty vector
         dataset.push_back(newTuple);            // Add new tuple to dataset
 
         // Loop through each input, plus output
-        for (int n = 0; n < inputs + 1; n = n+1) {
+        for (int n = 0; n < inputs + 1; n = n + 1) {
             getline(dataStream, cell, ',');      // Read next "block" from data file
             //dataset.at(t).push_back(stof(cell));       // Add this cell to dataset
         }
@@ -87,7 +93,7 @@ void Experiment::getData() {
 }
 
 void Experiment::printMatrix(vector<vector<float>> v) {
-    vector< vector<float> >::iterator row;
+    vector<vector<float> >::iterator row;
     vector<float>::iterator col;
     for (row = v.begin(); row != v.end(); row++) {
         for (col = row->begin(); col != row->end(); col++) {
@@ -101,37 +107,37 @@ bool Experiment::runExperiment() {
 
     testResults.resize(10);
 
-    MultilayerNN mlp = MultilayerNN(6,12,0.0002,0.0002,100,0.0000001);
+    //MultilayerNN mlp = MultilayerNN(6,12,0.0002,0.0002,100,0.0000001);
 
 
     // 5X
-    for (int i = 0; i < 5; i++) {
-        nextIteration();
-        // 2 CV
-        for (int j = 0; j < 2; j++) {
-            nextFold();
-
-            // Train and test all algorithms
-            for (auto algo : a) {
-                algo -> reset();
-                algo -> train(trainingData);
-                testResults.push_back(algo -> test(testingData));
-            }
-
-        }
-    }
+//    for (int i = 0; i < 5; i++) {
+//        nextIteration();
+//        // 2 CV
+//        for (int j = 0; j < 2; j++) {
+//            nextFold();
+//
+//            // Train and test all algorithms
+//            for (auto algo : a) {
+//                algo -> reset();
+//                algo -> train(trainingData);
+//                testResults.push_back(algo -> test(testingData));
+//            }
+//
+//        }
+//    }
 
     return true;
 }
 
-void Experiment::getDoubleData() {
+void Experiment::getDoubleData(string inputFile) {
     //prep file reader
     ifstream dataReader;
     string junk;
 
-    try{
-        dataReader.open("data2input.txt");
-    } catch (ifstream::failure e){
+    try {
+        dataReader.open(inputFile);
+    } catch (ifstream::failure e) {
         cout << "failed to open file!";
         cin >> junk;
     }
@@ -140,12 +146,14 @@ void Experiment::getDoubleData() {
     int input_Size, data_Num;
     dataReader >> input_Size >> data_Num;
 
+    inputs = input_Size;
+    n = data_Num;
 
     //read in all the inputs
-    for (int i = 0; i < data_Num; i++){
+    for (int i = 0; i < data_Num; i++) {
         dataReader >> junk;
         vector<double> temp_vec;
-        for (int j = 0; j < input_Size; j++){
+        for (int j = 0; j < input_Size; j++) {
             double temp;
             dataReader >> temp;
             temp_vec.push_back(temp);
@@ -157,47 +165,164 @@ void Experiment::getDoubleData() {
         doubleOutputData.push_back(temp_output);
     }
 
-    //temporary set up of inputs and outputs for testing
-    for (int i = 0; i < 100; i++){
-        doubleTrainingInput.push_back(doubleInputData[i]);
-        doubleTrainingOutput.push_back(doubleOutputData[i]);
+}
+
+void Experiment::normalizeData() {
+    //find min and max
+    double min = DBL_MAX;
+    double max = DBL_MIN;
+
+    for (int i = 0; i < doubleInputData.size(); i++) {
+        if (doubleOutputData[i] > max) {
+            max = doubleOutputData[i];
+        }
+        if (doubleOutputData[i] < min) {
+            min = doubleOutputData[i];
+        }
+
+        for (int j = 0; j < doubleInputData[i].size(); j++) {
+            if (doubleInputData[i][j] > max) {
+                max = doubleInputData[i][j];
+            }
+            if (doubleInputData[i][j] < min) {
+                min = doubleInputData[i][j];
+            }
+        }
     }
-    for (int i = 100; i < 200; i++){
-        doubleTestingInput.push_back(doubleInputData[i]);
-        doubleTestingOutput.push_back(doubleOutputData[i]);
+
+    //normalize the data points
+    for (int i = 0; i < doubleInputData.size(); i++) {
+        doubleOutputData[i] = -1 + (doubleOutputData[i] - min) * (1 - (-1)) / (max - min);
+
+        for (int j = 0; j < doubleInputData[i].size(); j++) {
+            doubleInputData[i][j] = -1 + (doubleInputData[i][j] - min) * (1 - (-1)) / (max - min);
+        }
+    }
+}
+
+void Experiment::splitData(){
+    //clear old testing and training data
+    vector<vector<double>> clr1;
+    vector<double> clr2;
+    vector<vector<double>> clr3;
+    vector<double> clr4;
+    doubleTrainingInput = clr1;
+    doubleTrainingOutput = clr2;
+    doubleTestingInput = clr3;
+    doubleTestingOutput = clr4;
+
+
+    //split training and testing data in half
+    srand(time(NULL));
+    int trainCount = 0;
+    int testCount = 0;
+    int iter = 0;
+    int total = doubleInputData.size() / 2;
+    while (trainCount < total && testCount < total){
+        int flip = rand() % 2;
+        if (flip == 0){
+            doubleTrainingInput.push_back(doubleInputData[iter]);
+            doubleTrainingOutput.push_back(doubleOutputData[iter]);
+            trainCount++;
+        } else {
+            doubleTestingInput.push_back(doubleInputData[iter]);
+            doubleTestingOutput.push_back(doubleOutputData[iter]);
+            testCount++;
+        }
+        iter++;
+    }
+    if(trainCount > testCount){
+        while(iter < doubleInputData.size()){
+            doubleTestingInput.push_back(doubleInputData[iter]);
+            doubleTestingOutput.push_back(doubleOutputData[iter]);
+            iter++;
+        }
+    } else {
+        while(iter < doubleInputData.size()){
+            doubleTrainingInput.push_back(doubleInputData[iter]);
+            doubleTrainingOutput.push_back(doubleOutputData[iter]);
+            iter++;
+        }
     }
 
-    RBFNN steve = RBFNN(9, input_Size);
-    steve.trainNetwork(doubleTrainingInput,doubleTrainingOutput);
+}
 
-    RBFNN tim = RBFNN(7, input_Size);
-    tim.trainNetwork(doubleTrainingInput,doubleTrainingOutput);
+void Experiment::runRBFNExperiment() {
+    double sqr_err;
+    double sqr_err2;
+    double sqr_err3;
 
-    RBFNN eric = RBFNN(5, input_Size);
-    eric.trainNetwork(doubleTrainingInput,doubleTrainingOutput);
+    ostringstream convert;   // stream used for the conversion
 
-    vector<double> test;
-    test.push_back(6.90001032);
-    test.push_back(5.05418397);
+    convert << inputs;      // insert the textual representation of 'Number' in the characters in the stream
 
-    vector<double> test2;
-    test2.push_back(5.91490540);
-    test2.push_back(5.54784913);
+    string inputString = convert.str();
 
-    vector<double> test3;
-    test3.push_back(9.49143368);
-    test3.push_back(3.07335744);
+    string output1 = "RBFN" + inputString + "I7K";
+    string output2 = "RBFN" + inputString + "I9K";
+    string output3  = "RBFN" + inputString + "I13K";
 
-    double testrun1 = steve.runModel(test);
-    double testrun2 = steve.runModel(test2);
-    double testrun3 = steve.runModel(test3);
+    ofstream dataWriter1;
+    dataWriter1.open(output1);
+    ofstream dataWriter2;
+    dataWriter2.open(output2);
+    ofstream dataWriter3;
+    dataWriter3.open(output3);
 
-    double testrun4 = tim.runModel(test);
-    double testrun5 = tim.runModel(test2);
-    double testrun6 = tim.runModel(test3);
+    // 5x2 Cross Validation
+    for (int i = 0; i < 5; i++) {
+        RBFNN testNetwork(7, inputs);
+        RBFNN testNetwork2(9, inputs);
+        RBFNN testNetwork3(13, inputs);
 
-    double testrun7 = eric.runModel(test);
-    double testrun8 = eric.runModel(test2);
-    double testrun9 = eric.runModel(test3);
-    cout << "yes!";
+        double temp1;
+        double temp2;
+        double temp3;
+
+        normalizeData();
+
+        splitData();
+
+        testNetwork.trainNetwork(doubleTrainingInput, doubleTrainingOutput);
+        testNetwork2.trainNetwork(doubleTrainingInput, doubleTrainingOutput);
+        testNetwork3.trainNetwork(doubleTrainingInput, doubleTrainingOutput);
+
+
+        temp1 = testNetwork.runTestData(doubleTestingInput, doubleTestingOutput);
+        temp2 = testNetwork2.runTestData(doubleTestingInput, doubleTestingOutput);
+        temp3 = testNetwork3.runTestData(doubleTestingInput, doubleTestingOutput);
+
+        sqr_err += temp1;
+        sqr_err2 += temp2;
+        sqr_err3 += temp3;
+
+        //write to file
+        dataWriter1 << temp1 << " ";
+        dataWriter2 << temp2 << " ";
+        dataWriter3 << temp3 << " ";
+
+        testNetwork.trainNetwork(doubleTestingInput, doubleTestingOutput);
+        testNetwork2.trainNetwork(doubleTestingInput, doubleTestingOutput);
+        testNetwork3.trainNetwork(doubleTestingInput, doubleTestingOutput);
+
+
+        temp1 = testNetwork.runTestData(doubleTrainingInput, doubleTrainingOutput);
+        temp2 = testNetwork2.runTestData(doubleTrainingInput, doubleTrainingOutput);
+        temp3 = testNetwork3.runTestData(doubleTrainingInput, doubleTrainingOutput);
+
+        sqr_err += temp1;
+        sqr_err2 += temp2;
+        sqr_err3 += temp3;
+
+        //write to file
+        dataWriter1 << temp1 << " ";
+        dataWriter2 << temp2 << " ";
+        dataWriter3 << temp3 << " ";
+    }
+
+    sqr_err = sqr_err / 10;
+    sqr_err2 = sqr_err2 / 10;
+    sqr_err3 = sqr_err3 / 10;
+
+    int stop = 1;
 }

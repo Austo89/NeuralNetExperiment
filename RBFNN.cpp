@@ -9,13 +9,16 @@
 #include <ctime>
 #include <float.h>
 #include <tgmath.h>
+#include <iostream>
+#include <fstream>
+#include <iomanip>
 #include "RBFNN.h"
 
 using namespace std;
 
 RBFNN::RBFNN(int in_K, int in_inputSize) {
     K = in_K;
-    eta = 0.002;
+    eta = 0.02;
     gamma = 1;
     inputSize = in_inputSize;
 
@@ -33,9 +36,6 @@ RBFNN::~RBFNN() {
 }
 
 
-
-
-
 void RBFNN::trainNetwork(vector<vector<double>> data, vector<double> ys) {
     //find K means - using Lloyd's algorithm
     //pick random mu values
@@ -44,7 +44,7 @@ void RBFNN::trainNetwork(vector<vector<double>> data, vector<double> ys) {
     for (int j = 0; j < K; j++) {
         int start_point = rand() % data.size();
         vector<double> temp_mu;
-        for (int i = 0; i < inputSize; i++){
+        for (int i = 0; i < inputSize; i++) {
             temp_mu.push_back(data[start_point][i]);
         }
         mus.push_back(temp_mu);
@@ -53,23 +53,23 @@ void RBFNN::trainNetwork(vector<vector<double>> data, vector<double> ys) {
     //find gamma, 1 / (2 * variance)
     //find mean
     vector<double> mean;
-    for (int i = 0; i < inputSize; i++){
+    for (int i = 0; i < inputSize; i++) {
         mean.push_back(0);
     }
 
-    for (int i = 0; i < inputSize; i++){
-        for(int j = 0; j < data.size(); j++){
+    for (int i = 0; i < inputSize; i++) {
+        for (int j = 0; j < data.size(); j++) {
             mean[i] += data[j][i];
         }
     }
 
-    for (int i = 0; i < inputSize; i++){
-        mean[i] = mean[i] / (double)data.size();
+    for (int i = 0; i < inputSize; i++) {
+        mean[i] = mean[i] / (double) data.size();
     }
 
     //find variance
     double variance = 0;
-    for (int i = 0; i < data.size(); i++){
+    for (int i = 0; i < data.size(); i++) {
         double d_sum = 0;
         for (int j = 0; j < inputSize; j++) {
             d_sum += (mean[j] - data[i][j]) * (mean[j] - data[i][j]);
@@ -97,23 +97,30 @@ void RBFNN::trainNetwork(vector<vector<double>> data, vector<double> ys) {
 
     //calculate Phi matrix
     vector<vector<double>> phi_matrix;
-    for (int i = 0; i < data.size();i++){
+    for (int i = 0; i < data.size(); i++) {
         vector<double> temp_vec;
-        for (int k = 0; k < K; k++){
-            temp_vec.push_back(phi(data[i],mus[k]));
+        for (int k = 0; k < K; k++) {
+            temp_vec.push_back(phi(data[i], mus[k]));
         }
         phi_matrix.push_back(temp_vec);
     }
 
-    double d_err = DBL_MAX;
-    double last_err = DBL_MAX;
-//    while (d_err > .001){
-//        double current_err = adeline(data,phi_matrix,ys);
-//        d_err = abs(last_err - current_err);
-//        last_err = current_err;
-//    }
+    for (int i = 0; i < 3; i++){
 
-    adeline(data,phi_matrix,ys);
+        for (int j = 0; j < data.size(); j++){
+            double d_err = DBL_MAX;
+            double last_err = DBL_MAX;
+            while (d_err > .001) {
+                double current_err = adeline(data, phi_matrix, ys,j);
+                d_err = abs(last_err - current_err);
+                last_err = current_err;
+            }
+        }
+    }
+
+
+
+    //adeline(data,phi_matrix,ys);
 }
 
 
@@ -163,9 +170,6 @@ double RBFNN::findClustering(vector<vector<double>> data) {
 }
 
 
-
-
-
 void RBFNN::findMus(vector<vector<double>> data) {
     //clear old Mus
     vector<vector<double>> refresh;
@@ -201,33 +205,31 @@ void RBFNN::findMus(vector<vector<double>> data) {
 }
 
 
-
-
-double RBFNN::adeline(vector<vector<double>> data, vector<vector<double>> phi_matrix, vector<double> ys) {
+double RBFNN::adeline(vector<vector<double>> data, vector<vector<double>> phi_matrix, vector<double> ys, int index) {
     vector<double> newWeights;
     vector<double> modelOutput;
+
+
     double err_diff = 0;
     double d_err = DBL_MAX;
     double last_err;
 
-    while (d_err > .001){
-        double random = runModel(data[3]);
-        random = ys[3] - random;
-        err_diff = random * random;
-        random = random * eta;
 
-        for (int i = 0; i < K; i++){
-            double what = phi(data[3],mus[i]) * random;
-            newWeights.push_back(what);
-        }
+    double random = runModel(data[index]);
+    random = ys[index] - random;
+    err_diff = random * random;
+    random = random * eta;
 
-        for (int i = 0; i < K; i++){
-            weights[i] += newWeights[i];
-        }
-
-        d_err = abs(last_err - err_diff);
-        last_err = err_diff;
+    for (int i = 0; i < K; i++) {
+        double what = phi_matrix[index][i] * random;
+        newWeights.push_back(what);
     }
+
+    for (int i = 0; i < K; i++) {
+        weights[i] += newWeights[i];
+    }
+
+
 
 
 
@@ -263,21 +265,43 @@ double RBFNN::adeline(vector<vector<double>> data, vector<vector<double>> phi_ma
 
 double RBFNN::runModel(vector<double> input) {
     double output = 0;
-    for (int i = 0; i < K; i++){
-        double temp =  phi(input, mus[i]) * weights[i];
+    for (int i = 0; i < K; i++) {
+        double temp = phi(input, mus[i]) * weights[i];
         output += temp;
     }
 
     return output;
 }
 
-double RBFNN::phi(vector<double> x, vector<double> mu){
+double RBFNN::phi(vector<double> x, vector<double> mu) {
     double d_sum = 0;
     for (int j = 0; j < inputSize; j++) {
-        d_sum += (mu[j] - x[j]) * (mu[j] - x[j]);
+        if (isnan(mu[j])) {
+            //do nothing
+        } else {
+            d_sum += (mu[j] - x[j]) * (mu[j] - x[j]);
+        }
+
     }
     double dist = sqrt(d_sum);
     double temp = exp(dist * dist * (-1 * gamma));
 
     return temp;
+}
+
+double RBFNN::runTestData(vector<vector<double>> xs, vector<double> ys) {
+    //run all test points and find the mean squared error
+    double err_sum = 0;
+    for (int i = 0; i < xs.size(); i++) {
+        double obs_y = runModel(xs[i]);
+        double err = ys[i] - obs_y;
+
+        //square the errors
+        err = err * err;
+        err_sum += err;
+    }
+
+    //average the sum of square errors
+    err_sum = err_sum / (double) ys.size();
+    return err_sum;
 }
