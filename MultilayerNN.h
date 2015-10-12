@@ -8,6 +8,7 @@
 #include "Algorithm.h"
 #include <vector>
 #include <math.h>
+#include <string>
 
 using namespace std;
 
@@ -57,6 +58,7 @@ private:
     vector<float> inputDelats;              // Deltas for input layer
     vector<float> outputDeltas;             // Deltas for output layer
     vector<vector<float>> hiddenDeltas;     // Deltas for hidden layers
+    vector<float> recentErrors;             // Stores the recent errors for derivative calculation
 
     void setTopo(vector<float> tuple);      // Creates network structure and randomizes weights
     void feedForward();                     // Calculate a network given training tuple
@@ -68,13 +70,14 @@ private:
     float testOne(vector<float> tuple);     // Tests a single tuple
 
 public:
-    MultilayerNN(int hiddenLayers, int hiddenNodes, string actFunc, float momentum, float learningRate,
+    MultilayerNN(string nickname, int hiddenLayers, int hiddenNodes, string actFunc, float momentum, float learningRate,
                  int iterations, float targetMSE);
     MultilayerNN(const MultilayerNN& orig);
     virtual void reset() override;
     virtual ~MultilayerNN();
     virtual vector<float> train(vector<vector<float>> tset) override;
-    virtual runResult test(vector<vector<float>> testSet) override;
+    virtual float test(vector<vector<float>> testSet) override;
+    virtual string const className() override { return "MLP"; }
 
 };
 

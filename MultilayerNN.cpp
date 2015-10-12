@@ -14,8 +14,9 @@
 #include <algorithm>
 #include <string>
 
-MultilayerNN::MultilayerNN(int hiddenLayers, int hiddenNodes, string _actFunc, float _momentum, float _learningRate,
+MultilayerNN::MultilayerNN(string _nickname, int hiddenLayers, int hiddenNodes, string _actFunc, float _momentum, float _learningRate,
                            int _iterations, float _targetMSE) {
+    nickname = _nickname;
     hiddenLayerCount = hiddenLayers;
     hiddenNodesPerLayer = hiddenNodes;
     momentum = _momentum;
@@ -41,10 +42,12 @@ vector<float> MultilayerNN::train(vector<vector<float>> tset) {
     dataWriter.open("MLP_ITerror.txt", ofstream::out | ofstream::trunc);
     dataWriter2.open("MLP_weights.txt", ofstream::out | ofstream::trunc);
 
+    bool deltaStatus = true;
+    float changeRate = 0;
     float mse = 999.99;
     int iteration = 0;
     vector<float> errors;
-    while (mse / targetMSE > 1.01 && iteration < iterations) {
+    while (deltaStatus && iteration < iterations) {
         //&& iteration < iterations) {
         // Zero out MSE
         mse = 0;
@@ -68,6 +71,19 @@ vector<float> MultilayerNN::train(vector<vector<float>> tset) {
         //errors.push_back(mse / tset.size());
         cout << iteration << " ====> " << mse << endl;
         dataWriter << iteration << "," << mse << endl;
+
+        // Determine whether error rate of change is sufficient to continue
+        recentErrors.push_back(mse);
+        if (recentErrors.size() > 200) {
+            recentErrors.erase(recentErrors.begin());
+            /* changeRate = 0;
+            for (auto e : recentErrors) {
+                changeRate += e;
+            }
+            changeRate /= recentErrors.size(); */
+
+            if (recentErrors.back() - recentErrors.front() > -0.001) deltaStatus = false;
+        }
 
         iteration++;
     }
@@ -328,8 +344,7 @@ float MultilayerNN::activate(float S) {
     return tanh(S);
 }
 
-Algorithm::runResult MultilayerNN::test(vector<vector<float>> testSet) {
-    runResult r;
+float MultilayerNN::test(vector<vector<float>> testSet) {
     //ofstream dataWriter;
     //ofstream dataWriter2;
 
@@ -344,10 +359,7 @@ Algorithm::runResult MultilayerNN::test(vector<vector<float>> testSet) {
 
     mse /= testSet.size();
 
-    r.algo = "MLP";
-    r.error = mse;
-
-    return r;
+    return mse;
 }
 
 float MultilayerNN::testOne(vector<float> tuple) {
@@ -363,4 +375,5 @@ float MultilayerNN::testOne(vector<float> tuple) {
 
 void MultilayerNN::reset() {
     topoSet = false;
+    recentErrors.clear();
 }

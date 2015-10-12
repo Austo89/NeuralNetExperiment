@@ -83,7 +83,7 @@ void Experiment::getData() {
         }
     }
 
-    printMatrix(dataset);
+    //printMatrix(dataset);
 
 }
 
@@ -100,7 +100,10 @@ void Experiment::printMatrix(vector<vector<float>> v) {
 
 bool Experiment::runExperiment() {
 
-    testResults.resize(10);
+    vector<fstream> resultStream(a.size());
+    for (int rs = 0; rs < a.size(); rs++) {
+        resultStream[rs].open("results_" + a[rs]->className() + "_" + a[rs]->nickname + ".txt");
+    }
 
     // 5X
     for (int i = 0; i < 5; i++) {
@@ -110,13 +113,17 @@ bool Experiment::runExperiment() {
             nextFold();
 
             // Train and test all algorithms
-            for (auto algo : a) {
-                algo -> reset();
-                algo -> train(trainingData);
-                testResults.push_back(algo -> test(testingData));
+            for (int alg = 0; alg <a.size(); alg++) {
+                a[alg] -> reset();
+                a[alg] -> train(trainingData);
+                resultStream[alg] << to_string(a[alg] -> test(testingData)) << endl;
             }
-
         }
+    }
+
+    // Close writers
+    for (int rs = 0; rs < a.size(); rs++) {
+        resultStream[rs].close();
     }
 
     return true;
