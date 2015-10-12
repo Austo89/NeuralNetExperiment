@@ -73,17 +73,17 @@ vector<float> MultilayerNN::train(vector<vector<float>> tset) {
         dataWriter << iteration << "," << mse << endl;
 
         // Determine whether error rate of change is sufficient to continue
-        recentErrors.push_back(mse);
-        if (recentErrors.size() > 200) {
-            recentErrors.erase(recentErrors.begin());
-            /* changeRate = 0;
-            for (auto e : recentErrors) {
-                changeRate += e;
+        if (iterations > 20) {
+            if (mse - lastError > -0.001) {
+                noDecreaseCount++;
+            } else {
+                noDecreaseCount = 0;
             }
-            changeRate /= recentErrors.size(); */
 
-            if (recentErrors.back() - recentErrors.front() > -0.001) deltaStatus = false;
+            if (noDecreaseCount == 5) deltaStatus = false;
         }
+
+        lastError = mse;
 
         iteration++;
     }
@@ -375,5 +375,4 @@ float MultilayerNN::testOne(vector<float> tuple) {
 
 void MultilayerNN::reset() {
     topoSet = false;
-    recentErrors.clear();
 }

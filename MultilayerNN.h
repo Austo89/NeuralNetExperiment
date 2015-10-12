@@ -49,6 +49,8 @@ private:
     int iterations;
     float targetMSE;
     bool sigmoid = false;
+    int noDecreaseCount = 0;
+    float lastError;
     vector<vector<float>> weights;          // Weight between layer i and j
     vector<vector<float>> tempWeights;
     vector<vector<float>> previousWeights;  // Stores weights from last pattern
@@ -58,7 +60,6 @@ private:
     vector<float> inputDelats;              // Deltas for input layer
     vector<float> outputDeltas;             // Deltas for output layer
     vector<vector<float>> hiddenDeltas;     // Deltas for hidden layers
-    vector<float> recentErrors;             // Stores the recent errors for derivative calculation
 
     void setTopo(vector<float> tuple);      // Creates network structure and randomizes weights
     void feedForward();                     // Calculate a network given training tuple

@@ -30,10 +30,12 @@ class Experiment {
 
 public:
     Experiment(vector<Algorithm*> _a, int inputs, int n);
+    Experiment(vector<Algorithm*> _a, string file, int _inputs, int _n);
     bool runExperiment();
     void getDoubleData();
 private:
     void getData();
+    void readData(string file);
     void nextFold();                            // For re-folding
     void nextIteration();                       // For next iteration of CV
     void printMatrix(vector<vector<float>> v);  // Helper method for outputting dataset

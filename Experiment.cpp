@@ -26,6 +26,14 @@ Experiment::Experiment(vector<Algorithm*> _a, int _inputs, int _n) {
     DataGenerator::normalizeData(dataset);
 }
 
+Experiment::Experiment(vector<Algorithm*> _a, string file, int _inputs, int _n) {
+    a = _a;
+    inputs = _inputs;
+    n = _n;
+    readData(file);
+    DataGenerator::normalizeData(dataset);
+}
+
 void Experiment::nextIteration () {
     // Clear out training and testing data
     trainingData.clear();
@@ -87,6 +95,30 @@ void Experiment::getData() {
 
 }
 
+void Experiment::readData(string file) {
+    ifstream dataStream;
+    string cell;
+
+    // Open data file for reading
+    dataStream.open(file);
+    if (dataStream.fail()) {                    // Check for stream error
+        cerr << "Read stream failure: " << strerror(errno) << '\n';
+    }
+    // Loop through each tuple
+    for (int t = 0; t < n; t = t+1) {
+        vector<float> newTuple;                 // Create empty vector
+        dataset.push_back(newTuple);            // Add new tuple to dataset
+
+        // Loop through each input, plus output
+        for (int n = 0; n < inputs + 1; n = n+1) {
+            getline(dataStream, cell, ',');      // Read next "block" from data file
+            dataset.at(t).push_back(stof(cell));       // Add this cell to dataset
+        }
+    }
+
+    //printMatrix(dataset);
+}
+
 void Experiment::printMatrix(vector<vector<float>> v) {
     vector< vector<float> >::iterator row;
     vector<float>::iterator col;
@@ -100,9 +132,14 @@ void Experiment::printMatrix(vector<vector<float>> v) {
 
 bool Experiment::runExperiment() {
 
-    vector<fstream> resultStream(a.size());
+    vector<fstream> resultStream;
     for (int rs = 0; rs < a.size(); rs++) {
-        resultStream[rs].open("results_" + a[rs]->className() + "_" + a[rs]->nickname + ".txt");
+        resultStream.push_back(fstream());
+        resultStream.back().open("results_" + a[rs]->className() + "_" + to_string(inputs) + "input_" + a[rs]->nickname + ".txt", ofstream::out | ofstream::trunc);
+        // Check for stream error
+        if (resultStream.back().fail()) {
+            cerr << "open stream failure at rs: " << to_string(rs) << strerror(errno) << '\n';
+        }
     }
 
     // 5X
@@ -113,10 +150,10 @@ bool Experiment::runExperiment() {
             nextFold();
 
             // Train and test all algorithms
-            for (int alg = 0; alg <a.size(); alg++) {
+            for (int alg = 0; alg < a.size(); alg++) {
                 a[alg] -> reset();
                 a[alg] -> train(trainingData);
-                resultStream[alg] << to_string(a[alg] -> test(testingData)) << endl;
+                resultStream.at(alg) << a[alg] -> test(testingData) << endl;
             }
         }
     }
